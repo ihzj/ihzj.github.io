@@ -1,0 +1,203 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+a, a:hover {
+  text-decoration: none; }
+
+@keyframes twinkling {
+  0% {
+    opacity: 0.5; }
+  100% {
+    opacity: 0; } }
+@-webkit-keyframes twinkling {
+  0% {
+    opacity: 0.5; }
+  100% {
+    opacity: 0; } }
+@keyframes upflow {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    top: 0px;
+    transform: translateY(0); } }
+@-webkit-keyframes upflow {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    top: 0px;
+    transform: translateY(0); } }
+@keyframes downflow {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+@-webkit-keyframes downflow {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+@keyframes fly {
+  0% {
+    left: 0;
+    opacity: 1; }
+  99.9% {
+    left: 100%;
+    opacity: 1; }
+  100% {
+    left: 0;
+    opacity: 0; } }
+@-webkit-keyframes fly {
+  0% {
+    left: 0;
+    opacity: 1; }
+  99.9% {
+    left: 100%;
+    opacity: 1; }
+  100% {
+    left: 0;
+    opacity: 0; } }
+body {
+  font-size: 10px;
+  background: url(../img/background-02.jpg) no-repeat top left;
+  background-size: cover; }
+
+/*nav*/
+header {
+  padding: 4rem 0; }
+  header nav a {
+    font-size: 2rem;
+    font-family: "微软雅黑";
+    font-weight: 600; }
+
+section .homeview .hello-block {
+  position: relative;
+  text-align: center; }
+  section .homeview .hello-block:after {
+    content: "|";
+    position: absolute;
+    right: 10rem;
+    top: 0;
+    font-size: 25rem;
+    color: #fff;
+    opacity: 0.5;
+    transform: translate3d(0, -2rem, 0);
+    animation: twinkling 1.5s infinite;
+    animation-delay: 1.6s;
+    opacity: 0; }
+  section .homeview .hello-block span {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 250px;
+    transform: translateY(-100px);
+    animation: downflow .4s ease-in-out forwards;
+    opacity: 0; }
+    section .homeview .hello-block span:nth-child(2) {
+      animation-delay: 0.2s; }
+    section .homeview .hello-block span:nth-child(3) {
+      animation-delay: 0.4s; }
+    section .homeview .hello-block span:nth-child(4) {
+      animation-delay: 0.6s; }
+    section .homeview .hello-block span:nth-child(5) {
+      animation-delay: 0.8s; }
+    section .homeview .hello-block span:nth-child(6) {
+      animation-delay: 1s; }
+section .homeview p {
+  font-size: 24px;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: upflow .4s 1.2s ease-in forwards; }
+section .introduceview {
+  padding: 40px; }
+  section .introduceview h1 {
+    font-size: 100px;
+    color: #fff;
+    font-family: 'Rubik', sans-serif;
+    margin-top: 100px; }
+  section .introduceview p {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Titillium Web', sans-serif;
+    line-height: 50px; }
+  section .introduceview .photo {
+    position: absolute;
+    right: 150px;
+    top: -20px;
+    width: 22%; }
+  section .introduceview .carousel-inner .item {
+    margin-top: 20px; }
+    section .introduceview .carousel-inner .item p {
+      font-size: 26px !important; }
+    section .introduceview .carousel-inner .item h2 {
+      color: #fff; }
+    section .introduceview .carousel-inner .item .col-lg-12 img {
+      width: 80%; }
+    section .introduceview .carousel-inner .item .thumbnail {
+      position: relative;
+      overflow: hidden; }
+      section .introduceview .carousel-inner .item .thumbnail .tag {
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        padding: 10px;
+        color: #ccc;
+        height: 50px;
+        width: 100%;
+        line-height: 30px;
+        background: rgba(0, 0, 0, 0.7); }
+      section .introduceview .carousel-inner .item .thumbnail:hover .tag {
+        bottom: 0; }
+  section .introduceview .travel {
+    position: relative;
+    height: 800px; }
+    section .introduceview .travel .bg-img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: url(../img/travelbg.jpg);
+      background-size: cover;
+      filter: blur(15px); }
+    section .introduceview .travel .title-bg {
+      position: absolute;
+      top: -19px;
+      left: 0;
+      height: 300px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4); }
+      section .introduceview .travel .title-bg h2 {
+        font-size: 40px;
+        color: #fff;
+        font-weight: 700;
+        line-height: 200px; }
+    section .introduceview .travel .plane {
+      position: absolute;
+      top: 410px;
+      width: 5%;
+      animation: fly 16s linear infinite; }
+section .skillsview {
+  margin-top: 50px; }
+section .worksview .work {
+  padding: 50px;
+  border-top-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background: rgba(255, 255, 255, 0.2); }
+section .worksview h2 {
+  font-size: 36px; }
+section .worksview p, section .worksview time {
+  color: #eee;
+  font-size: 22px; }
+section .worksview .bigimg {
+  position: fixed;
+  top: 26%;
+  left: 15%;
+  z-index: 999;
+  display: none; }
