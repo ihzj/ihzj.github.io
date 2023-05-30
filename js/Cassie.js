@@ -48,11 +48,11 @@ app.config(['$routeProvider',function($routeProvider){
 }]);
 //主页控制器
 app.controller('homeCtrl',['$scope','$timeout',function($scope,$timeout){
-	$scope.message = '我是Cassie，能来到我家的都是大美女大帅哥,哇哈哈~';
+	$scope.message = '我是常德，能来到我这里的都是大美女大帅哥,哇哈哈~';
 }]);
 //简介页控制器
 app.controller('introduceCtrl',['$scope','$interval',function($scope,$interval){
-	$scope.message = '我是一个性格开朗的人，喜欢交朋友，爱玩爱闹爱跳。大学里，我是班内的文体委员，积极参与并且鼓励同学参加学校组织的各种活动。貌似还有点才艺的我也加入了院文艺部和舞蹈队，在文艺部没做过啥大事，就是做做活动的前期宣传工作，辅助性的帮帮大家搞搞后台工作。作为舞蹈队队长和主力的我，更多的是带着成员们练习舞蹈，为学校举办的各种活动出节目，做开场。那么爱跳的我，当然还有另外一个身份，校啦啦队成员之一，也曾经代表学校参加比赛获得不错的集体奖。学校运动会上你也可以看到我的身影，曾经和队员们连续两年参加校运动会啦啦操比赛并且获得不错的成绩。我很喜欢那些和队员们挥洒汗水的日子。'
+	$scope.message = '这是我建立的第一个网站，它搭建在GitHub的静态页面上。我喜欢将自己的内容留在网络上，以前用网易的博客自由行挺大的，只不过它关停了，一直没有找到合适的，突然有一次在B站上看到了，可以用GitHub搭建个人博客，我认为GitHub完全够用，因为我只用它来存一些简单的事'
 	
 	$scope.bigger=function(obj){
 		console.log(obj)
