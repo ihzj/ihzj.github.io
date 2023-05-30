@@ -259,7 +259,7 @@ app.controller('introduceCtrl',['$scope','$interval',function($scope,$interval){
 }]);
 //技能页控制器
 app.controller('skillsCtrl',['$scope',function($scope){
-	$scope.title = "我所掌握的技能有"
+	$scope.title = "最近发布的个人随笔"
 	$scope.bars = [
 		{
 			type : "progress-bar-info",
