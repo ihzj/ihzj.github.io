@@ -48,7 +48,7 @@ app.config(['$routeProvider',function($routeProvider){
 }]);
 //主页控制器
 app.controller('homeCtrl',['$scope','$timeout',function($scope,$timeout){
-	$scope.message = '我是常德，能来到我这里的都是大美女大帅哥,哇哈哈~';
+	$scope.message = '大家好我是常德，能来到我这里的都是大美女大帅哥,哇哈哈~';
 }]);
 //简介页控制器
 app.controller('introduceCtrl',['$scope','$interval',function($scope,$interval){
