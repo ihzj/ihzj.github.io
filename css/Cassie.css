@@ -86,7 +86,7 @@ section .homeview .hello-block {
     position: absolute;
     right: 10rem;
     top: 0;
-    font-size: 25rem;
+    font-size: 5rem;
     color: #fff;
     opacity: 0.5;
     transform: translate3d(0, -2rem, 0);
