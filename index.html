@@ -7,12 +7,10 @@
 		<meta name="author" content="Cassie" />
 		<meta name="keywords" content="前端开发工程师,界面设计,web前端" />
 		<meta name="description" content="关于Cassie,一个前端小辈,立志要在前端风雨无阻,勇往直前" />
-		<link rel="icon" href="img/favicon-4.ico" />
 		<link rel="stylesheet" href="css/bootstrap.css" />
 		<link rel="stylesheet" href="css/animate.min.css" />
 		<link rel="stylesheet" href="css/Cassie.css" />
-		<script src="js/angular.min.js"></script>
-		<script src="js/angualr-route.js"></script>
+		
 	</head>
 
 	<body ng-app="cassieApp">
@@ -20,8 +18,8 @@
 			<div class="container-fluid">
 				<!--logo-->
 				<div class="navbar-brand">
-					<!--注释掉左上角图标-->
-					<!--<a href="#home"><img src="img/me1.png" alt="我脸哪儿去了?" style="width: 65%;" /></a>-->
+					
+					<a href="#home"><img src="img/me1.png" alt="我脸哪儿去了?" style="width: 65%;" /></a>
 				</div>
 				<!--一级导航-->
 				<nav class="navbar navbar-default navbar-right" style="padding: 44px 0 0;">
@@ -45,130 +43,8 @@
 				</nav>
 			</div>
 		</header>
-		<section>
-			<!--存放视图模板的地方-->
-			<div ng-view></div>
-			<!--主页视图模板
-			<script type="text/ng-template" id="homeview">
-				<div class="homeview">
-					<div class="container">
-						<div class="hello-block col col-lg-12">
-							<span style="color: #e4b034;">H</span>
-							<span style="color: #e87d60;">e</span>
-							<span style="color: #3ac3a3;">l</span>
-							<span style="color: #3ac3a3;">l</span>
-							<span style="color: #dc6b6b;">o</span>
-							<span style="color: #e87d60;">.</span>
-						</div>
-					</div>
-					<p class="text-center" style="color: #fff;">{{message}}</p>
-				</div>
-			</script>
-			注释掉Hello-->
-			<!--简介视图模板-->
-			<script type="text/ng-template" id="introduceview">
-				<div class="introduceview container-fluid">
-					<div class="carousel slide" id="myCarousel">
-						<!--小点-->
-						<ol class="carousel-indicators">
-							<li class="active" data-target="#myCarousel" data-slide-to="0"></li>
-							<li data-target="#myCarousel" data-slide-to="1"></li>
-							<li data-target="#myCarousel" data-slide-to="2"></li>
-							<li data-target="#myCarousel" data-slide-to="3"></li>
-						</ol>
-						<!--内容区-->
-						<div class="carousel-inner">
-							<div class="item active row" style="margin: 90px auto;position:relative;">
-								<div class="col col-lg-12" ng-repeat="intro in intros" style="margin:30px auto;">
-									<img src="{{intro.src}}" class="animated bounceInLeft" style="width: 60%;" />
-								</div>
-								<img src="img/myphoto.jpg" class="photo animated bounceInRight img-circle" />
-							</div>
-							<div class="item row travel">
-								<div class="bg-img"></div>
-								<img src="img/travel-map.png" alt="" />
-								<div class="title-bg">
-									<h2 class="text-center" >始终憧憬着陌生遥远的地方</h2>
-								</div>
-								<div class="places clearfix" ng-repeat="place in places">
-									<img src="{{place.src}}" ng-mouseover="bigger(this)" class="placesImg" title="{{place.title}}" style="width: 10%;" ng-style="{{place.pos}}" />
-								</div>
-								<div><img src="img/travel-plane.gif" class="plane" /></div>
-							</div>
-							<div class="item row">
-								<h2>鉴赏美食盛宴</h2>
-								<a href="javascript:;" class="thumbnail col col-lg-3" ng-repeat="img in imgs1">
-									<img src="{{img.src}}" />
-									<div class="tag">{{img.tag}}</div>
-								</a>
-							</div>
-							<div class="item">
-								<h2>闲时娱乐小情调</h2>
-								<a href="javascript:;" class="thumbnail col col-lg-3" ng-repeat="img in imgs2">
-									<img src="{{img.src}}" />
-									<div class="tag">{{img.tag}}</div>
-								</a>
-								<h2 class="text-right">别觉得整天坐在电脑前？就没爱好了！其实，看一看恐怖片也能让人精神斗宿</h2>
-								<img src="img/mini-last.png" style="margin:0 auto;" />
-							</div>
-							<div>Thank you for visiting.See you soon.</div>
-						</div>
-					</div>
-				</div>
-			</script>
-			<!--技能视图模板-->
-			<script type="text/ng-template" id="skillsview">
-				<div class="skillsview">
-					<div class="container" style="margin-bottom: 20px;">
-						<h2 style="color: #fff;">{{title}}</h2></div>
-					<div class="container" ng-repeat="bar in bars">
-						<div class="progress">
-							<div class="progress-bar {{bar.type}}" role="progressbar" aria-valuenow="{{bar.value}}" aria-valuemin="0" aria-valuemax="100" style="{{bar.style}} line-height: 30px;font-size: 18px;">
-								{{bar.description}}
-							</div>
-						</div>
-					</div>
-				</div>
-			</script>
-			<!--作品视图模板-->
-			<script type="text/ng-template" id="worksview">
-				<div class="worksview container">
-					<div class="row work" ng-repeat="work in works" style="margin: 40px;">
-						<div class="col col-lg-5">
-							<a href="#">
-								<h2 class="text-center" style="color: #fff;">{{work.title}}</h2></a>
-							<!--作品效果图-->
-							<a href="{{work.href}}" target="_blank">
-								<img src="{{work.src}}" style="height: 200px;" ng-click="bigImg()" />
-							</a>
-						</div>
-						<div class="col col-lg-7" style="margin-top: 102px;padding-left: 60px;">
-							<time>时间：{{work.time}}</time>
-							<p>类型：{{work.type}}</p>
-							<p>主要运用：{{work.knowledge}}</p>
-							<p>链接：
-								<a href="{{work.href}}" target="_blank" style="color: #0C79B1;">{{work.href}}</a>
-							</p>
-						</div>
-						<div class="bigimg">
-							<img src="{{work.src}}" title="{{work.title}}" />
-						</div>
-					</div>
-				</div>
-			</script>
-		</section>
-		<script src="js/jquery-1.12.4.js"></script>
-		<script src="js/Cassie.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script type="text/javascript">
-			$('.carousel').carousel({
-				interval: 2000
-			})
-//			$(".placesImg").on("mouseenter",function(){
-////			$(this).transform('rotate(0)')
-//			alert(1)
-//		})
-		</script>
+		
+			
 		
 	</body>
 
