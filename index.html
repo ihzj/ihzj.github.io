@@ -1,28 +1,15 @@
-<!-- Specify your Handlebars template here.
+<!DOCTYPE html>
+<html>
 
-The following JavaScript context will be passed to the template:
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elonjiu</title>
+  <link rel="stylesheet" href="https://stackedit.cn/style.css" />
+</head>
 
-{
-  files: [{
-    name: 'The filename',
-    content: {
-      text: 'The file content',
-      html: '<p>The file content</p>',
-      yamlProperties: 'The file properties in YAML format',
-      properties: {
-        // Computed file properties object
-      },
-      toc: [
-        // Table Of Contents tree
-      ]
-    }
-  }]
-}
-
-
-As an example:
-
-<html><body><h1 id="欢迎来到我的空间"><span class="prefix"></span><span class="content">欢迎来到我的空间</span><span class="suffix"></span></h1>
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="欢迎来到我的空间"><span class="prefix"></span><span class="content">欢迎来到我的空间</span><span class="suffix"></span></h1>
 <pre class=" language-mermaid"><code class="prism  language-mermaid">下面是最近的文章链接
 笔者：Elonjiu
 </code></pre>
@@ -30,36 +17,7 @@ As an example:
 <p>这是我跟一位老师闲聊时，老师说的一段话。在老师的眼里充满了自豪，“要是所有学生都像夏洛一样该有多好”</p>
 <h2 id="一个故事看完瞬间明白了很多"><span class="prefix"></span><span class="content"><a href="https://mp.weixin.qq.com/s/1ure7XAITo_JHHe5BOsNGQ"><strong>一个故事看完瞬间明白了很多</strong></a></span><span class="suffix"></span></h2>
 <p>许多事情，该怎样，就怎样。等待它顺其自然的发生，结果会更好。可面对现实的时候，有谁又知道，事物本身该有的结果是什么样子呢？这是一个关于流浪汉的故事：”静观其变，是一种能力！顺其自然，是一种幸福“。</p>
-</body></html>
+</div>
+</body>
 
-will produce:
-
-<html><body><p>The file content</p></body></html>
-
-
-You can use Handlebars built-in helpers and the custom StackEdit ones:
-
-
-<ul>
-<li><a href="#欢迎来到我的空间">欢迎来到我的空间</a>
-<ul>
-<li><a href="#多年以后老师说，这当初是我的学生夏洛">多年以后老师说，这当初是我的学生夏洛</a></li>
-<li><a href="#一个故事看完瞬间明白了很多">一个故事看完瞬间明白了很多</a></li>
-</ul>
-</li>
-</ul>
- will produce a clickable TOC.
-
-
-<ul>
-<li><a href="#欢迎来到我的空间">欢迎来到我的空间</a>
-<ul>
-<li><a href="#多年以后老师说，这当初是我的学生夏洛">多年以后老师说，这当初是我的学生夏洛</a></li>
-<li><a href="#一个故事看完瞬间明白了很多">一个故事看完瞬间明白了很多</a></li>
-</ul>
-</li>
-</ul>
- will limit the TOC depth to 3.
--->
-
-
+</html>
