@@ -351,6 +351,23 @@
  background-color: #333;<hr size="3px" color="#cococo">
  color: rgba(255,255,255,0.75);
  }
+    
+/* 添加折叠效果样式 */
+    .preview-theme--simplebrack .foldable-image {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .preview-theme--simplebrack .foldable-image img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .preview-theme--simplebrack .foldable-image.folded img {
+      transform: translateY(100%);
+    }
   </style>
 </head>
 
@@ -358,14 +375,26 @@
   <div class="stackedit__html">
     <div class="stackedit__content preview-theme--simplebrack">
       <h2 id="每一次的5公里记录"><span class="prefix"></span><span class="content">每一次的5公里记录</span><span class="suffix"></span></h2>
-            <img src="pkbuimage/240302.jpg" alt="24年跑步">
-            <p>24年第一次跑步</p>
+      <!-- 第一张图片 -->
+      <div class="foldable-image" onclick="toggleFold(this)">
+        <img src="pkbuimage/240302.jpg" alt="24年跑步">
+      </div>
+      <p>24年第一次跑步</p>
       <hr size="3px" color="#cococo">
-            <img src="pkbuimage/240304.jpg" alt="24年跑步">
-            <p>24年第二次跑步，前天快了一点，加油！</p>
+      <!-- 第二张图片 -->
+      <div class="foldable-image" onclick="toggleFold(this)">
+        <img src="pkbuimage/240304.jpg" alt="24年跑步">
+      </div>
+      <p>24年第二次跑步，比前天快了一点，加油！</p>
       <hr size="3px" color="#cococo">
     </div>
   </div>
+
+  <script>
+    function toggleFold(element) {
+      element.classList.toggle("folded");
+    }
+  </script>
 </body>
 
 </html>
