@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>新年快乐！</title>
+    <style>
+        body {
+            background-color: #ff4444; /* 红色背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .card {
+            background-color: #fff9e6;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px gold;
+            text-align: center;
+            position: relative;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: blink 1.5s infinite;
+        }
+
+        .decorations span {
+            position: absolute;
+            font-size: 24px;
+            animation: float 3s infinite;
+        }
+
+        /* 装饰物位置 */
+        .decoration1 { left: 10%; top: 20%; }
+        .decoration2 { right: 15%; top: 30%; }
+        .decoration3 { left: 20%; bottom: 25%; }
+        .decoration4 { right: 10%; bottom: 15%; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(20deg); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; color: #ffd700; }
+            50% { opacity: 0.8; color: #ffec8b; }
+        }
+
+        .message {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #d40000;
+            margin: 20px 0;
+        }
+
+        .firework {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: firework 2s infinite;
+        }
+
+        @keyframes firework {
+            0% { transform: scale(1); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 装饰元素 -->
+        <div class="decorations">
+            <span class="decoration1">🎉</span>
+            <span class="decoration2">✨</span>
+            <span class="decoration3">🐰</span>
+            <span class="decoration4">❤️</span>
+        </div>
+
+        <h1>新年快乐！</h1>
+        
+        <div class="message">
+            <p>亲爱的小朋友：</p>
+            <p>🎈新年到，真热闹！</p>
+            <p>📚学习进步天天笑！</p>
+            <p>🏃身体健康蹦蹦跳！</p>
+            <p>🎁心想事成没烦恼！</p>
+            <p>祝你新年快乐！🎆</p>
+        </div>
+
+        <div class="firework">🎇</div>
+    </div>
+</body>
+</html>
