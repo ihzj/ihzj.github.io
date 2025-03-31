@@ -2,91 +2,108 @@
 <html>
 <head>
     <style>
-        .question-box {
-            border: 2px solid #ccc;
+        /* A4纸比例容器 */
+        .a4-container {
+            width: 80vw;
+            height: calc(80vw * 29.7 / 21);
+            max-width: 600px;
+            max-height: 850px;
+            background: #e0f7fa;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 黑板报标题 */
+        .title {
+            text-align: center;
+            color: #2e7d32;
+            font-family: 'Comic Sans MS', cursive;
+            text-shadow: 2px 2px #fff;
+            margin: 10px 0;
+        }
+
+        /* 内容区块 */
+        .section {
+            background: white;
+            border-radius: 15px;
             padding: 15px;
-            margin: 20px;
-            border-radius: 8px;
-            background: #f9f9f9;
+            margin: 15px;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
         }
-        .answer {
-            color: #2c3e50;
-            font-weight: bold;
-            margin-top: 10px;
+
+        /* 卡通插图 */
+        .tree {
+            width: 80px;
+            height: 120px;
+            background: #8bc34a;
+            position: absolute;
+            border-radius: 15px;
+            clip-path: polygon(0 100%, 30% 60%, 50% 30%, 70% 60%, 100% 100%);
         }
-        code {
-            background: #eee;
-            padding: 2px 5px;
+
+        .cloud {
+            width: 100px;
+            height: 40px;
+            background: #fff;
+            border-radius: 20px;
+            position: absolute;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 互动按钮 */
+        .tip-button {
+            background: #4caf50;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .tip-button:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <h1>百数表填空题（含答案）</h1>
-
-    <!-- 题目1 -->
-    <div class="question-box">
-        <h3>题目1：60 → 73</h3>
-        <pre>60  
-73</pre>
-        <div class="answer">
-            答案：<br>
-            <code>
-            60<br>
-            63<br>
-            73
-            </code>
+    <div class="a4-container">
+        <h1 class="title">🌍 守护地球家园 🌱</h1>
+        
+        <!-- 左侧内容 -->
+        <div class="section" style="width: 45%; position: absolute; left: 5%; top: 25%">
+            <h2>🌳 环保小卫士守则：</h2>
+            <ul>
+                <li>垃圾分类我最棒</li>
+                <li>节约用水要记牢</li>
+                <li>随手关灯省能源</li>
+                <li>绿色出行更健康</li>
+            </ul>
+            <div class="tip-button" onclick="alert('每天节约1度电，一年可以减排1吨CO₂！')">点击查看环保小知识</div>
         </div>
-    </div>
 
-    <!-- 题目2 -->
-    <div class="question-box">
-        <h3>题目2：38 → 78</h3>
-        <pre>38  
-78</pre>
-        <div class="answer">
-            答案：<br>
-            <code>
-            38<br>
-            48<br>
-            58<br>
-            68<br>
-            78
-            </code>
+        <!-- 右侧内容 -->
+        <div class="section" style="width: 45%; position: absolute; right: 5%; top: 25%">
+            <h2>💧 保护水资源：</h2>
+            <p>1. 缩短洗澡时间<br>
+               2. 重复利用生活用水<br>
+               3. 不往河里扔垃圾<br>
+               4. 使用节水型器具</p>
+            <img src="https://img.icons8.com/color/48/000000/water-drop.png" alt="水滴">
         </div>
-    </div>
 
-    <!-- 题目3（与题目5重复） -->
-    <div class="question-box">
-        <h3>题目3：31 → 81</h3>
-        <pre>31  
-81</pre>
-        <div class="answer">
-            答案：<br>
-            <code>
-            31<br>
-            41<br>
-            51<br>
-            61<br>
-            71<br>
-            81
-            </code>
-            <p style="color: #888;">* 题目5与此题重复</p>
-        </div>
-    </div>
-
-    <!-- 题目4（与题目6重复） -->
-    <div class="question-box">
-        <h3>题目4：53 → 78</h3>
-        <pre>53  
-78</pre>
-        <div class="answer">
-            答案：<br>
-            <code>
-            53<br>
-            73<br>
-            78
-            </code>
-            <p style="color: #888;">* 题目6与此题重复</p>
+        <!-- 装饰元素 -->
+        <div class="tree" style="left: 10%; bottom: 10%"></div>
+        <div class="tree" style="left: 30%; bottom: 15%; background: #689f38"></div>
+        <div class="cloud" style="top: 15%; left: 20%"></div>
+        <div class="cloud" style="top: 20%; right: 25%"></div>
+        
+        <!-- 底部标语 -->
+        <div style="position: absolute; bottom: 5%; width: 100%; text-align: center">
+            <h3 style="color: #d32f2f">🌎 我们的地球需要每个人的爱护！</h3>
         </div>
     </div>
 </body>
