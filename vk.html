@@ -2,108 +2,171 @@
 <html>
 <head>
     <style>
-        /* A4纸比例容器 */
+        /* 横版A4容器 */
         .a4-container {
-            width: 80vw;
-            height: calc(80vw * 29.7 / 21);
-            max-width: 600px;
-            max-height: 850px;
-            background: #e0f7fa;
+            width: 90vh;
+            height: calc(90vh * 210/297);
+            max-width: 1000px;
+            max-height: 700px;
+            background: linear-gradient(160deg, #87CEEB 30%, #E0F7FA 100%);
             margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
             position: relative;
             overflow: hidden;
         }
 
-        /* 黑板报标题 */
+        /* 标题样式 */
         .title {
             text-align: center;
-            color: #2e7d32;
-            font-family: 'Comic Sans MS', cursive;
-            text-shadow: 2px 2px #fff;
-            margin: 10px 0;
+            color: #1B5E20;
+            font-family: '幼圆', cursive;
+            text-shadow: 2px 2px #FFF9C4;
+            margin: 15px 0;
+            font-size: 2.5em;
         }
 
         /* 内容区块 */
         .section {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 15px;
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
-        }
-
-        /* 卡通插图 */
-        .tree {
-            width: 80px;
-            height: 120px;
-            background: #8bc34a;
-            position: absolute;
-            border-radius: 15px;
-            clip-path: polygon(0 100%, 30% 60%, 50% 30%, 70% 60%, 100% 100%);
-        }
-
-        .cloud {
-            width: 100px;
-            height: 40px;
-            background: #fff;
+            background: rgba(255,255,255,0.9);
             border-radius: 20px;
+            padding: 20px;
+            margin: 15px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 生动云朵 */
+        .cloud {
+            width: 120px;
+            height: 50px;
+            background: white;
+            border-radius: 50px;
             position: absolute;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            animation: float 6s infinite;
+        }
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+        .cloud::before {
+            width: 60px;
+            height: 60px;
+            top: -25px;
+            left: 20px;
+        }
+        .cloud::after {
+            width: 40px;
+            height: 40px;
+            top: -15px;
+            right: 20px;
+        }
+
+        /* 生动树木 */
+        .tree {
+            position: absolute;
+            bottom: 0;
+        }
+        .trunk {
+            width: 20px;
+            height: 60px;
+            background: #8D6E63;
+            margin: 0 auto;
+        }
+        .leaves {
+            width: 80px;
+            height: 100px;
+            background: #4CAF50;
+            border-radius: 40px 40px 60px 60px;
+            position: relative;
+            animation: sway 3s ease-in-out infinite;
+        }
+        .leaves::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: #81C784;
+            border-radius: 30px 30px 50px 50px;
+            left: 10px;
+            top: 10px;
+        }
+
+        /* 动画效果 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes sway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
         }
 
         /* 互动按钮 */
-        .tip-button {
-            background: #4caf50;
+        .eco-button {
+            background: #43A047;
             color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1.1em;
         }
-
-        .tip-button:hover {
-            transform: scale(1.1);
+        .eco-button:hover {
+            background: #2E7D32;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
     <div class="a4-container">
-        <h1 class="title">🌍 守护地球家园 🌱</h1>
-        
-        <!-- 左侧内容 -->
-        <div class="section" style="width: 45%; position: absolute; left: 5%; top: 25%">
-            <h2>🌳 环保小卫士守则：</h2>
+        <h1 class="title">🌿 我是环保小卫士 🌏</h1>
+
+        <!-- 左侧环保知识 -->
+        <div class="section" style="width: 35%; position: absolute; left: 3%; top: 20%">
+            <h2>🌱 环保小贴士：</h2>
             <ul>
-                <li>垃圾分类我最棒</li>
-                <li>节约用水要记牢</li>
-                <li>随手关灯省能源</li>
-                <li>绿色出行更健康</li>
+                <li>垃圾分类：可回收/有害/厨余/其他</li>
+                <li>节约用纸：双面使用更环保</li>
+                <li>绿色出行：每周一天步行上学</li>
+                <li>爱护植物：给校园绿植浇水</li>
             </ul>
-            <div class="tip-button" onclick="alert('每天节约1度电，一年可以减排1吨CO₂！')">点击查看环保小知识</div>
+            <button class="eco-button" onclick="alert('1吨废纸 = 拯救17棵大树！')">点击获得能量</button>
         </div>
 
-        <!-- 右侧内容 -->
-        <div class="section" style="width: 45%; position: absolute; right: 5%; top: 25%">
-            <h2>💧 保护水资源：</h2>
-            <p>1. 缩短洗澡时间<br>
-               2. 重复利用生活用水<br>
-               3. 不往河里扔垃圾<br>
-               4. 使用节水型器具</p>
-            <img src="https://img.icons8.com/color/48/000000/water-drop.png" alt="水滴">
+        <!-- 右侧环保行动 -->
+        <div class="section" style="width: 35%; position: absolute; right: 3%; top: 20%">
+            <h2>💡 我们可以做：</h2>
+            <ul>
+                <li>使用环保购物袋</li>
+                <li>自带水杯减少塑料</li>
+                <li>设置雨水收集桶</li>
+                <li>制作环保手抄报</li>
+            </ul>
+            <img src="https://img.icons8.com/color/48/000000/recycle-bin.png" alt="回收">
         </div>
 
-        <!-- 装饰元素 -->
-        <div class="tree" style="left: 10%; bottom: 10%"></div>
-        <div class="tree" style="left: 30%; bottom: 15%; background: #689f38"></div>
-        <div class="cloud" style="top: 15%; left: 20%"></div>
-        <div class="cloud" style="top: 20%; right: 25%"></div>
+        <!-- 动态自然元素 -->
+        <div class="cloud" style="top: 10%; left: 5%"></div>
+        <div class="cloud" style="top: 15%; right: 8%; animation-delay: -2s"></div>
         
-        <!-- 底部标语 -->
-        <div style="position: absolute; bottom: 5%; width: 100%; text-align: center">
-            <h3 style="color: #d32f2f">🌎 我们的地球需要每个人的爱护！</h3>
+        <div class="tree" style="left: 15%">
+            <div class="trunk"></div>
+            <div class="leaves"></div>
+        </div>
+        <div class="tree" style="left: 30%">
+            <div class="trunk"></div>
+            <div class="leaves" style="background: #689F38; height: 120px"></div>
+        </div>
+
+        <!-- 底部互动区 -->
+        <div style="position: absolute; bottom: 5%; left: 50%; transform: translateX(-50%)">
+            <h3 style="color: #1B5E20">🌳 每棵小树都是地球的绿色卫士！</h3>
+            <button class="eco-button" onclick="this.innerHTML='👍 你已种下1棵虚拟树！'">点击种树</button>
         </div>
     </div>
 </body>
