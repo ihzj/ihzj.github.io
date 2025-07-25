@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于静态网站生成器的思考 - 我的个人博客</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">
+                <a href="index.html" class="hover:text-blue-200">我的个人博客</a>
+            </h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-blue-200">首页</a></li>
+                    <li><a href="first-post.html" class="hover:text-blue-200">最新文章</a></li>
+                    <li><a href="about.html" class="hover:text-blue-200">关于我</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-200">联系方式</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto my-8 p-6 bg-white rounded-lg shadow-lg">
+        <article>
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">关于静态网站生成器的思考</h2>
+            <p class="text-sm text-gray-600 mb-6">发布日期: 2025年7月20日 | 作者: 你的名字</p>
+
+            <img src="https://placehold.co/800x450/F0F8FF/368BC1?text=SSG思考" alt="静态网站生成器思考" class="w-full h-auto rounded-lg mb-8 shadow-md">
+
+            <!-- 核心改动：为文章内容添加 mx-auto 和 max-w-3xl，使其居中并限制宽度 -->
+            <div class="prose prose-lg text-gray-800 leading-relaxed mx-auto max-w-3xl">
+                <p class="mb-4">
+                    在当今的 Web 开发领域，静态网站生成器（Static Site Generators, SSG）越来越受到欢迎。它们结合了传统静态网站的优点（速度、安全、成本低）和动态网站的便利性（模板、数据管理）。
+                </p>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-3 mt-6">SSG 的工作原理</h3>
+                <p class="mb-4">
+                    SSG 的核心思想是在构建时（build time）将内容（通常是 Markdown 文件）和模板（HTML、CSS、JS）结合起来，预先生成所有最终的 HTML、CSS 和 JavaScript 文件。这意味着当用户访问你的网站时，服务器直接提供这些已经生成好的文件，而不需要在每次请求时都进行数据库查询或服务器端渲染。
+                </p>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-3 mt-6">流行的 SSG 工具</h3>
+                <ul class="list-disc list-inside ml-4 mb-4">
+                    <li class="mb-2"><strong>Hugo:</strong> 基于 Go 语言，以其极快的构建速度而闻名。</li>
+                    <li class="mb-2"><strong>Jekyll:</strong> 基于 Ruby，是 GitHub Pages 的默认 SSG。</li>
+                    <li class="mb-2"><strong>Eleventy (11ty):</strong> 基于 Node.js，灵活且易于学习。</li>
+                    <li class="mb-2"><strong>Gatsby:</strong> 基于 React 和 GraphQL，适合构建复杂的、数据驱动的静态网站。</li>
+                    <li class="mb-2"><strong>Next.js / Nuxt.js:</strong> 虽然主要是 React/Vue 框架，但它们也提供了强大的静态导出（Static Export）功能。</li>
+                </ul>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-3 mt-6">何时选择 SSG？</h3>
+                <p class="mb-4">
+                    SSG 特别适合以下场景：
+                </p>
+                <ul class="list-disc list-inside ml-4 mb-4">
+                    <li class="mb-2">个人博客和作品集</li>
+                    <li class="mb-2">公司官网和营销页面</li>
+                    <li class="mb-2">文档站点和知识库</li>
+                    <li class="mb-2">需要极高加载速度和 SEO 表现的网站</li>
+                </ul>
+                <p class="mb-4">
+                    总而言之，如果你不需要频繁的用户交互、用户认证或复杂的后端逻辑，SSG 是一个非常高效和强大的选择。它们让内容创作变得简单，同时提供了卓越的性能和安全性。
+                </p>
+                <p class="text-right text-gray-700 italic mt-8">
+                    —— 你的名字
+                </p>
+            </div>
+        </article>
+
+        <!-- 返回主页链接 -->
+        <div class="mt-10 text-center">
+            <a href="index.html" class="inline-block bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-300 transition-colors duration-300">
+                &larr; 返回首页
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-6 text-center mt-8">
+        <div class="container mx-auto">
+            <p>&copy; 2025 我的个人博客. 保留所有权利。</p>
+            <p class="text-sm mt-2">使用 <a href="https://tailwindcss.com/" target="_blank" class="underline hover:text-blue-400">Tailwind CSS</a> 构建</p>
+        </div>
+    </footer>
+</body>
+</html>
