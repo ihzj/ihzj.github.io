@@ -34,9 +34,10 @@
     <main class="container mx-auto my-8 p-6 bg-white rounded-lg shadow-lg">
         <section class="mb-8">
             <h2 class="text-4xl font-extrabold text-gray-900 mb-6 border-b-2 pb-2">最新文章</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 文章卡片 1 -->
-                <article class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+            <!-- 移除了 grid 布局，使文章卡片平铺显示 -->
+            <div class="flex flex-col items-center"> 
+                <!-- 文章卡片 1 - 只保留这一篇文章 -->
+                <article class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full max-w-3xl">
                     <img src="https://placehold.co/600x400/E0F2F7/2A607C?text=博客文章图片" alt="博客文章图片" class="w-full h-48 object-cover rounded-md mb-4">
                     <h3 class="text-2xl font-semibold text-blue-700 mb-2">
                         <a href="first-post.html" class="hover:underline">我的第一篇博客文章标题</a>
@@ -45,30 +46,7 @@
                     <p class="text-gray-700 leading-relaxed mb-4">这是我的第一篇博客文章的摘要。它将介绍一些有趣的话题，并分享我的见解...</p>
                     <a href="first-post.html" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">阅读全文 &rarr;</a>
                 </article>
-
-                <!-- 文章卡片 2 -->
-                <article class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/600x400/F0F8FF/368BC1?text=学习笔记" alt="学习笔记图片" class="w-full h-48 object-cover rounded-md mb-4">
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">
-                        <a href="second-post.html" class="hover:underline">关于静态网站生成器的思考</a>
-                    </h3>
-                    <p class="text-sm text-gray-600 mb-4">发布日期: 2025年7月20日</p>
-                    <p class="text-gray-700 leading-relaxed mb-4">本文探讨了静态网站生成器的优势、应用场景以及如何选择适合自己的工具...</p>
-                    <a href="second-post.html" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">阅读全文 &rarr;</a>
-                </article>
-
-                <!-- 更多文章卡片可以在这里添加 -->
             </div>
-        </section>
-
-        <section>
-            <h2 class="text-4xl font-extrabold text-gray-900 mb-6 border-b-2 pb-2">欢迎来到我的博客！</h2>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                这里是我分享个人想法、学习笔记和项目经验的地方。希望我的内容能对你有所启发或帮助。
-            </p>
-            <p class="text-lg text-gray-700 leading-relaxed mt-4">
-                你可以通过导航栏查看不同的页面和文章。
-            </p>
         </section>
     </main>
 
