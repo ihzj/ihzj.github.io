@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 我的个人博客</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">
+                <a href="index.html" class="hover:text-blue-200">我的个人博客</a>
+            </h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-blue-200">首页</a></li>
+                    <li><a href="first-post.html" class="hover:text-blue-200">最新文章</a></li>
+                    <li><a href="about.html" class="hover:text-blue-200">关于我</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-200">联系方式</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto my-8 p-6 bg-white rounded-lg shadow-lg">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-6 border-b-2 pb-2">关于我</h2>
+        <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+            <img src="https://placehold.co/200x200/B3E5FC/0288D1?text=你的头像" alt="你的头像" class="w-48 h-48 rounded-full object-cover shadow-lg">
+            <div class="text-lg text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                    你好！我是一名热衷于技术和分享的开发者。这个博客是我记录学习过程、分享技术经验和个人思考的平台。我喜欢探索新的技术，解决复杂的问题，并乐于将我的发现和经验分享给社区。
+                </p>
+                <p class="mb-4">
+                    我的主要兴趣领域包括：
+                </p>
+                <ul class="list-disc list-inside ml-4 mb-4">
+                    <li>Web 开发 (前端与后端)</li>
+                    <li>数据科学与机器学习</li>
+                    <li>云计算与 DevOps</li>
+                    <li>开源项目贡献</li>
+                </ul>
+                <p>
+                    如果你对我的内容感兴趣，或者有任何问题想交流，欢迎通过 <a href="contact.html" class="text-blue-600 hover:underline">联系方式</a> 页面与我取得联系。
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-6 text-center mt-8">
+        <div class="container mx-auto">
+            <p>&copy; 2025 我的个人博客. 保留所有权利。</p>
+            <p class="text-sm mt-2">使用 <a href="https://tailwindcss.com/" target="_blank" class="underline hover:text-blue-400">Tailwind CSS</a> 构建</p>
+        </div>
+    </footer>
+</body>
+</html>
