@@ -1,0 +1,53 @@
+/*
+    文件: css/style.css
+    描述: 自定义样式表，用于补充 Tailwind CSS 或添加特定样式。
+    Tailwind CSS 已经提供了大部分基础样式，这里可以添加一些全局性的或 Tailwind 无法直接实现的样式。
+*/
+
+/* 确保图片自适应容器宽度 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 针对文章内容的排版优化 (使用 Tailwind 的 @apply) */
+.prose h1 {
+    @apply text-4xl font-extrabold mb-4;
+}
+.prose h2 {
+    @apply text-3xl font-bold mb-3;
+}
+.prose h3 {
+    @apply text-2xl font-semibold mb-2;
+}
+.prose p {
+    @apply mb-4 leading-relaxed;
+}
+.prose ul {
+    @apply list-disc list-inside ml-4 mb-4;
+}
+.prose ol {
+    @apply list-decimal list-inside ml-4 mb-4;
+}
+.prose li {
+    @apply mb-1;
+}
+.prose a {
+    @apply text-blue-600 hover:underline;
+}
+.prose strong {
+    @apply font-bold;
+}
+.prose em {
+    @apply italic;
+}
+
+/* 可以在这里添加更多自定义样式 */
+
+/* 例如：一个简单的按钮动画 */
+.button-hover-effect {
+    transition: transform 0.2s ease-in-out;
+}
+.button-hover-effect:hover {
+    transform: translateY(-2px);
+}
