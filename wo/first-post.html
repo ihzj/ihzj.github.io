@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的第一篇博客文章标题 - 我的个人博客</title>
+    <title>我的个人博客</title>
+    <!-- 引入 Tailwind CSS CDN，用于快速样式化 -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入自定义样式表 -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- 引入自定义 JavaScript -->
     <script src="js/main.js" defer></script>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
+    <!-- 头部导航栏 -->
     <header class="bg-blue-600 text-white p-4 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-3xl font-bold">
@@ -18,7 +22,7 @@
             <nav>
                 <ul class="flex space-x-4">
                     <li><a href="index.html" class="hover:text-blue-200">首页</a></li>
-                    <li><a href="first-post.html" class="hover:text-blue-200">最新文章</a></li>
+                    <li><a href="first-post.html" class="hover:text-blue-200">历史文章</a></li>
                     <li><a href="about.html" class="hover:text-blue-200">关于我</a></li>
                     <li><a href="contact.html" class="hover:text-blue-200">联系方式</a></li>
                 </ul>
@@ -26,53 +30,44 @@
         </div>
     </header>
 
+    <!-- 主内容区域 -->
     <main class="container mx-auto my-8 p-6 bg-white rounded-lg shadow-lg">
-        <article>
-            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">我的第一篇博客文章标题</h2>
-            <p class="text-sm text-gray-600 mb-6">发布日期: 2025年7月25日 | 作者: 你的名字</p>
-
-            <img src="https://placehold.co/800x450/E0F2F7/2A607C?text=文章主图" alt="文章主图" class="w-full h-auto rounded-lg mb-8 shadow-md">
-
-            <!-- 核心改动：为文章内容添加 mx-auto 和 max-w-3xl，使其居中并限制宽度 -->
-            <div class="prose prose-lg text-gray-800 leading-relaxed mx-auto max-w-3xl">
-                <p class="mb-4">
-                    欢迎来到我的第一篇博客文章！在这里，我将分享一些关于如何开始一个个人博客的经验。选择一个合适的平台是第一步，对于静态博客而言，你可以选择像 Jekyll, Hugo, Eleventy 这样的静态网站生成器，或者像我这样，直接用纯 HTML、CSS 和 JavaScript 来构建。
-                </p>
-                <h3 class="text-2xl font-semibold text-gray-900 mb-3 mt-6">为什么选择静态博客？</h3>
-                <ul class="list-disc list-inside ml-4 mb-4">
-                    <li class="mb-2"><strong>高性能:</strong> 静态文件直接由服务器提供，加载速度快。</li>
-                    <li class="mb-2"><strong>高安全性:</strong> 没有数据库和服务器端代码，攻击面大大减少。</li>
-                    <li class="mb-2"><strong>低成本:</strong> 可以免费部署到 GitHub Pages, Netlify, Vercel 等平台。</li>
-                    <li class="mb-2"><strong>易于维护:</strong> 一旦生成，几乎不需要维护。</li>
-                </ul>
-                <p class="mb-4">
-                    虽然静态博客在动态功能上有所限制，但对于个人博客、文档站点或简单的产品展示页来说，它是一个非常棒的选择。你可以通过嵌入第三方服务（如 Disqus 用于评论，Google Analytics 用于统计）来弥补一些动态功能的不足。
-                </p>
-                <h3 class="text-2xl font-semibold text-gray-900 mb-3 mt-6">如何开始？</h3>
-                <ol class="list-decimal list-inside ml-4 mb-4">
-                    <li class="mb-2"><strong>规划内容:</strong> 确定你的博客主题和文章类型。</li>
-                    <li class="mb-2"><strong>选择工具:</strong> 决定使用纯 HTML/CSS/JS 还是静态网站生成器。</li>
-                    <li class="mb-2"><strong>设计结构:</strong> 像我提供的这个目录结构一样，规划好你的文件和文件夹。</li>
-                    <li class="mb-2"><strong>编写内容:</strong> 使用 Markdown 编写你的文章。</li>
-                    <li class="mb-2"><strong>部署:</strong> 将生成的静态文件上传到你的托管服务。</li>
-                </ol>
-                <p class="mb-4">
-                    希望这篇简短的文章能为你开启个人博客之旅提供一些帮助！如果你有任何疑问，欢迎在评论区留言（如果集成评论系统的话），或者通过联系方式与我交流。
-                </p>
-                <p class="text-right text-gray-700 italic mt-8">
-                    —— 你的名字
-                </p>
+        <section class="mb-8">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-6 border-b-2 pb-2">最新文章</h2>
+            <!-- 移除了 grid 布局，使文章卡片平铺显示 -->
+            <div class="flex flex-col items-center"> 
+                <!-- 文章卡片 1 - 只保留这一篇文章 -->
+                <article class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full max-w-3xl">
+                    <img src="https://placehold.co/600x400/E0F2F7/2A607C?text=博客文章图片" alt="博客文章图片" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">
+                        <a href="first-post.html" class="hover:underline">我的第一篇博客文章标题</a>
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-4">发布日期: 2025年7月25日</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">这是我的第一篇博客文章的摘要。它将介绍一些有趣的话题，并分享我的见解...</p>
+                    <a href="first-post.html" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">阅读全文 &rarr;</a>
+                </article>
             </div>
-        </article>
-
-        <!-- 返回主页链接 -->
-        <div class="mt-10 text-center">
-            <a href="index.html" class="inline-block bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-300 transition-colors duration-300">
-                &larr; 返回首页
-            </a>
-        </div>
+        </section>
     </main>
-
+    <main class="container mx-auto my-8 p-6 bg-white rounded-lg shadow-lg">
+        <section class="mb-8">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-6 border-b-2 pb-2">最新文章</h2>
+            <!-- 移除了 grid 布局，使文章卡片平铺显示 -->
+            <div class="flex flex-col items-center"> 
+                <!-- 文章卡片 1 - 只保留这一篇文章 -->
+                <article class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full max-w-3xl">
+                    <img src="https://placehold.co/600x400/E0F2F7/2A607C?text=博客文章图片" alt="博客文章图片" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">
+                        <a href="first-post.html" class="hover:underline">我的第一篇博客文章标题</a>
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-4">发布日期: 2025年7月25日</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">这是我的第一篇博客文章的摘要。它将介绍一些有趣的话题，并分享我的见解...</p>
+                    <a href="first-post.html" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">阅读全文 &rarr;</a>
+                </article>
+            </div>
+        </section>
+    </main>
+    <!-- 底部信息 -->
     <footer class="bg-gray-800 text-white p-6 text-center mt-8">
         <div class="container mx-auto">
             <p>&copy; 2025 我的个人博客. 保留所有权利。</p>
