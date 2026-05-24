@@ -1,0 +1,304 @@
+html_content = """<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二年级升三年级家校协同管理契约与行动指南</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* 头部样式 */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #0f766e;
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+        }
+        .header h1 {
+            color: #0f766e;
+            font-size: 26px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+        .header p {
+            color: #64748b;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        /* 核心导语 */
+        .intro-box {
+            background-color: #f0fdfa;
+            border-left: 4px solid #0f766e;
+            padding: 20px;
+            margin-bottom: 35px;
+            border-radius: 0 8px 8px 0;
+        }
+        .intro-box p {
+            margin: 0;
+            font-size: 15px;
+            color: #115e59;
+            text-align: justify;
+        }
+        
+        /* 标题样式 */
+        h2 {
+            color: #1e293b;
+            font-size: 18px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        h2::before {
+            content: "■";
+            color: #0f766e;
+            margin-right: 8px;
+            font-size: 14px;
+            vertical-align: middle;
+        }
+        h3 {
+            color: #0f766e;
+            font-size: 16px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        th {
+            background-color: #0f766e;
+            color: #ffffff;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #0f766e;
+        }
+        td {
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            vertical-align: top;
+            text-align: justify;
+        }
+        tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+        
+        /* 列表样式 */
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #334155;
+            text-align: justify;
+        }
+        li strong {
+            color: #0f766e;
+        }
+        
+        /* 强调呼应框 */
+        .callout-card {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+        .callout-card h4 {
+            margin: 0 0 8px 0;
+            color: #1e293b;
+            font-size: 15px;
+        }
+        .callout-card p {
+            margin: 0;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        /* 快捷导航/落款 */
+        .footer {
+            margin-top: 5px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>家校共育·习惯启航</h1>
+        <p>—— 二年级升三年级家校协同管理契约与行动指南 ——</p>
+    </div>
+
+    <div class="intro-box">
+        <p><strong>核心理念：先抓习惯，再谈成绩。</strong>孩子的自律与自觉不是一蹴而就的，而是一个漫长且复杂的过程。在孩子尚未形成完全的独立思考能力时，家校双方必须紧密配合、协同监督。帮助孩子度过二升三的关键转型期，把习惯定型，后面的路才会越走越稳。</p>
+    </div>
+
+    <h2>一、 班级现状问题与家校协同对策对照表</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30%;">班级管理存在问题</th>
+                <th style="width: 35%;">学校 / 老师管理聚焦</th>
+                <th style="width: 35%;">家庭 / 家长行动配合</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>1. 课下追逐打闹：</strong>部分男生过于好动，自我约束力较差，课间安全隐患令老师担忧。</td>
+                <td>加强课間巡查与文明游戏引导；即时纠正危险行为；建立班级安全积分与红绿灯规则。</td>
+                <td>严禁让孩子带玩具、零食进校园；日常强化安全与规则教育，教导孩子做到“懂规则、守规矩”。</td>
+            </tr>
+            <tr>
+                <td><strong>2. 课堂专注力不足：</strong>部分学生听课容易走神、做小动作，心思不在课堂上，导致知识点一知半解。</td>
+                <td>优化课堂趣味性与互动问答；运用眼神提示、走动巡视、针对性提问等方式及时提醒走神学生。</td>
+                <td>营造安静单一的家庭学习环境；配合老师抓好孩子的学习态度，定期了解孩子在校的听课状态。</td>
+            </tr>
+            <tr>
+                <td><strong>3. 作业习惯马虎：</strong>写作业拖拉磨蹭、粗心大意、字迹潦草，完工后不会自主检查，高度依赖督促。</td>
+                <td>明确书写规范与作业时效；课内听写字字过关；严格把控课后练习质量，不流于形式。</td>
+                <td>抓态度、抓作业。督促孩子先自我检查再由家长抽查，培养责任心；错题及时规范改正，在质中求快。</td>
+            </tr>
+            <tr>
+                <td><strong>4. 自主意识薄弱：</strong>缺乏主动读书、主动思考的习惯，学习大多靠老师和家长在后面“推着走”。</td>
+                <td>在教学中采用启发式提问激发思考；通过近期亲子阅读打卡等活动，搭建阅读展示和表彰平台。</td>
+                <td><strong>因材施教：</strong>自律的孩子尝试适当放手、适时抽查；不够自律的孩子必须耐心陪伴，持续监督直至习惯定型。</td>
+            </tr>
+            <tr>
+                <td><strong>5. 细节习惯欠缺：</strong>在整理书包、按时作息、认真审题、规范书写等小细节上做得不到位，直接影响效率。</td>
+                <td>在校常态化强调行为规范；将细节习惯融入日常班务管理与少先队评优考核中。</td>
+                <td>坚持以身作则、言传身教；严格卡好作息时间；力所能及的事（如收拾书包、穿衣）坚决让孩子自己做。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>二、 基础行为习惯培养要求（家庭践行八项规范）</h2>
+    <ol>
+        <li><strong>准时作息：</strong>坚持早睡早起，保证充足的睡眠时间，做到上学不迟到。</li>
+        <li><strong>独立自理：</strong>自己吃饭，自己穿衣，自己整理书包，力所能及的事情一定让孩子自己做，绝不包办代替。</li>
+        <li><strong>文明交往：</strong>讲文明，有礼貌，与同学友好相处。正确对待和处理同学间的小矛盾，引导孩子先找自身原因，做到心胸宽广，爱护而不溺爱。</li>
+        <li><strong>公共礼仪：</strong>在公共场合克制个人言行，保持安静，不要大声吵闹，培养良好的公共行为习惯。</li>
+        <li><strong>劳动参与：</strong>家庭生活中，主动鼓励并分配孩子做一些力所能及的家务劳动，培养家庭责任感。</li>
+        <li><strong>物权意识：</strong>保管好自己的个人物品；捡到东西要及时归还，别人的东西绝对不能拿，建立清晰的边界感。</li>
+        <li><strong>勇敢表达：</strong>刻意在家庭交流中培养孩子大胆说话、落落大方地表达自己真实想法的习惯。</li>
+        <li><strong>规矩意识：</strong>教育孩子心存规则，做事情要遵循社会规范与班级纪律，懂得有所为、有所不为。</li>
+    </ol>
+
+    <h2>三、 核心学习习惯及执行标准</h2>
+    <p style="font-size: 14px; color: #475569;">面对二年级下学期向三年级的跨越，家校双方必须落实以下标准化流程：</p>
+
+    <h3>（一）关于课前预习（严格执行“五字诀”）</h3>
+    <p style="font-size: 14px; font-weight: bold; color: #115e59;">要把预习真正落实到位，每次新课前监督孩子完成：</p>
+    <ul>
+        <li><strong>① 读：</strong>朗读课文至少2遍。遇到难读的字词句反复练读，达到读准字词、读通句子、全文流畅的程度。</li>
+        <li><strong>② 标：</strong>在文中标注出自然段序号或诗歌的节号。</li>
+        <li><strong>③ 圈：</strong>对照词语表，在课文中圈画出目标词语，同时显著圈出一类字和二类字。</li>
+        <li><strong>④ 写：</strong>二类字要求查字典，写出部首、结构并进行组词；一类字在书上规范写出字的部首和结构。</li>
+        <li><strong>⑤ 问：</strong>结合课本插图初步了解课文主要内容，思考课后习题，带着未解的疑问去上课。</li>
+    </ul>
+
+    <h3>（二）关于重视复习（基础落实与过关）</h3>
+    <ul>
+        <li><strong>“三表”全面落地：</strong>紧抓写字表（熟练掌握结构、部首、笔画、音序、组词、造句）、识字表（会认、会组词、掌握蓝色多音字）和词语表（会写、会默）。</li>
+        <li><strong>错题清零行动：</strong>练习本、作业本中写错的字词，必须督促孩子规范、反复地改正，课外补充错题及时订正，书写必须字迹工整。</li>
+        <li><strong>理解与背诵：</strong>要求背诵的课文及日积月累必背，不要求的要达到熟读；课后练习题、语文园地的写话和口语交际必须充分理解加会做。</li>
+    </ul>
+
+    <h3>（三）关于二下写话至三年级习作的跃升转型（“五步训练法”）</h3>
+    <div class="callout-card">
+        <h4>💡 转型背景与字数变化</h4>
+        <p>二年级下学期的写话字数要求在 100-150 字左右。为了给三年级作文做准备，字数需要逐步过渡到 200-250 字。动笔前，请按以下五步引导孩子：</p>
+    </div>
+    <ol>
+        <li><strong>第一步：搭框架（看）—— 构筑核心。</strong>牢牢抓住写话四要素：明确交代清楚“什么时候 + 天气/景色 + 谁 + 在哪里 + 干什么”。</li>
+        <li><strong>第二步：加修饰（想）—— 添枝加叶。</strong>引导孩子将平时阅读和课堂中积累的好词好句巧妙代入。加入形容词（怎样的天空）、比喻句、精准的量词（一只小鸟）和副词（开心地跑），让表达更生动。</li>
+        <li><strong>第三步：身临其境（想）—— 换位思考。</strong>引导孩子想象图中人物看到了什么、听到了什么、想到了什么、会说什么、会做什么，最终结果怎样，心情如何，以及有什么收获或道理。</li>
+        <li><strong>第四步：突出重点画面 —— 拒绝平铺直叙。</strong>针对核心的人物活动或关键情节，必须详写动作、细写语言，让画面“活”起来。</li>
+        <li><strong>第五步：段落布局与说连贯（说与写）—— 先说后写。</strong>学会段落的合理划分。动笔前，先让孩子按顺序把故事完整、连贯地口头说几遍，争取每次比上次更具体，再落笔成文。</li>
+    </ol>
+
+    <h2>四、 高品质家长的五大自我定位</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">角色定位</th>
+                <th style="width: 75%;">核心行动准则</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>1. 榜样型家长</strong></td>
+                <td>以身作则，言传身教。在数字化时代给孩子树立良好的作息习惯与阅读学习榜样。</td>
+            </tr>
+            <tr>
+                <td><strong>2. 监督型家长</strong></td>
+                <td>严格监督作业与作息。双减背景下，周末作业是“筛选习惯”的重要抓手，口头、复习、预习作业也容不得半点草率。</td>
+            </tr>
+            <tr>
+                <td><strong>3. 细心型家长</strong></td>
+                <td>日常辅导要有足够的耐心与长期的连续性。细心留意孩子的学习技能，要求想问题、做作业时在“质中求快”。</td>
+            </tr>
+            <tr>
+                <td><strong>4. 民主型家长</strong></td>
+                <td>尊重孩子，包容理解。允许孩子在习惯建立初期出现反复，用科学的方法进行循循善诱，而不是一味指责。</td>
+            </tr>
+            <tr>
+                <td><strong>5. 智慧型家长</strong></td>
+                <td>因材施教。利用课余时间鼓励孩子学会观察与思考，着重抓好孩子的观察力、注意力、记忆力、想象力与思维力。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>五、 家校长效沟通与健康协同机制</h2>
+    <ul>
+        <li><strong>维护教师威信：</strong>“尊其师，才能信其道”。家长在孩子面前不要随意谈论或负面评价老师，随时主动与代课老师做好理性沟通，了解孩子的在校情况。</li>
+        <li><strong>强化主动沟通：</strong>教育孩子在校若发生意外、身体不适或有小矛盾时，请让孩子第一时间主动找老师沟通交流，学会信任学校和老师。</li>
+        <li><strong>推进健康管理：</strong>在双减和健康管理背景下，家长应积极督促孩子多运动，坚持体育锻炼、增强体质，确保身心健康长远发展。</li>
+    </ul>
+
+    <div class="footer">
+        <p>最优的教育，是老师含辛茹苦的执着；最好的补位，是家长永不缺席的陪伴。让我们携手并进！</p>
+    </div>
+</div>
+
+</body>
+</html>
+"""
+
+# Save the content to an HTML file
+file_name = "home_school_cooperative_guidelines.html"
+with open(file_name, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"File {file_name} successfully created.")
