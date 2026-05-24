@@ -1,304 +1,360 @@
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>二年级升三年级家校协同管理契约与行动指南</title>
+    <title>陪孩子走过二升三：咱们班的习惯养成与家校叮咛</title>
     <style>
         * {
             box-sizing: border-box;
         }
         body {
-            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #334155;
-            background-color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2c2724; /* 温暖的深炭褐，告别冰冷的纯黑或AI常用的深灰 */
+            background-color: #fcfbf9; /* 柔和的暖纸色，比纯白和冰冷灰更有温度 */
+            line-height: 1.8;
             margin: 0;
-            padding: 40px 20px;
+            padding: 40px 24px;
+            -webkit-font-smoothing: antialiased;
         }
-        .container {
-            max-width: 900px;
+        .wrapper {
+            max-width: 780px; /* 黄金阅读宽度 */
             margin: 0 auto;
             background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            padding: 50px 60px;
+            border: 1px solid #ede9e1;
+            border-radius: 4px; /* 轻微圆角，克制、不显媚俗 */
         }
         
-        /* 头部样式 */
-        .header {
+        /* 杂志感报头 */
+        .masthead {
             text-align: center;
-            border-bottom: 3px solid #0f766e;
-            padding-bottom: 25px;
-            margin-bottom: 35px;
+            border-bottom: 2px solid #2c2724;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
         }
-        .header h1 {
-            color: #0f766e;
-            font-size: 26px;
-            margin: 0 0 10px 0;
-            font-weight: 700;
-        }
-        .header p {
-            color: #64748b;
-            font-size: 14px;
-            margin: 0;
-        }
-        
-        /* 核心导语 */
-        .intro-box {
-            background-color: #f0fdfa;
-            border-left: 4px solid #0f766e;
-            padding: 20px;
-            margin-bottom: 35px;
-            border-radius: 0 8px 8px 0;
-        }
-        .intro-box p {
-            margin: 0;
-            font-size: 15px;
-            color: #115e59;
-            text-align: justify;
-        }
-        
-        /* 标题样式 */
-        h2 {
-            color: #1e293b;
-            font-size: 18px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 8px;
-            margin-top: 35px;
-            margin-bottom: 20px;
+        .masthead .tag {
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            color: #b35431; /* 温暖的砖红，点缀色 */
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
             display: block;
         }
-        h2::before {
-            content: "■";
-            color: #0f766e;
-            margin-right: 8px;
-            font-size: 14px;
-            vertical-align: middle;
+        .masthead h1 {
+            font-family: "Georgia", "Nimbus Roman No9 L", "Songti SC", "STSong", "SimSun", serif; /* 引入衬线体增强人文感 */
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            color: #1a1715;
         }
-        h3 {
-            color: #0f766e;
-            font-size: 16px;
-            margin-top: 25px;
-            margin-bottom: 12px;
+        .masthead .subtitle {
+            font-size: 14px;
+            color: #7c7267;
+            margin: 0;
+            font-style: italic;
         }
         
-        /* 表格样式 */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 25px;
-            font-size: 14px;
+        /* 像信件一样的开篇语 */
+        .letter-start {
+            font-size: 15px;
+            color: #4a423c;
+            text-align: justify;
+            margin-bottom: 45px;
+            padding: 0 10px;
         }
-        th {
-            background-color: #0f766e;
-            color: #ffffff;
+        
+        /* 去掉 rigid AI 表格，改用优雅的文学感编排 */
+        h2 {
+            font-family: "Georgia", "Songti SC", "STSong", serif;
+            font-size: 20px;
+            color: #1a1715;
+            margin-top: 45px;
+            margin-bottom: 24px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #ede9e1;
+            position: relative;
+        }
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 50px;
+            height: 1px;
+            background-color: #b35431;
+        }
+        
+        h3 {
+            font-size: 16px;
+            color: #b35431;
+            margin-top: 30px;
+            margin-bottom: 15px;
             font-weight: 600;
-            text-align: left;
-            padding: 12px;
-            border: 1px solid #0f766e;
         }
-        td {
-            padding: 12px;
-            border: 1px solid #e2e8f0;
-            vertical-align: top;
+
+        /* 现状剖析版块样式 */
+        .issue-item {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #f0ede6;
+        }
+        .issue-item:last-child {
+            border-bottom: none;
+        }
+        .issue-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #b35431;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .issue-title span {
+            background: #fbf0ec;
+            color: #b35431;
+            padding: 2px 8px;
+            font-size: 12px;
+            border-radius: 2px;
+            margin-right: 10px;
+        }
+        .issue-desc {
+            font-size: 14px;
+            color: #7c7267;
+            margin-bottom: 12px;
+            padding-left: 0;
             text-align: justify;
         }
-        tr:nth-child(even) td {
-            background-color: #f8fafc;
+        .action-grid {
+            display: block;
+            background: #fdfcfb;
+            border: 1px solid #f2eee7;
+            padding: 15px 20px;
+            font-size: 14px;
         }
-        
-        /* 列表样式 */
-        ul, ol {
+        .action-line {
+            margin-bottom: 6px;
+        }
+        .action-line:last-child {
+            margin-bottom: 0;
+        }
+        .action-line strong {
+            color: #4a6b5d; /* 墨绿提示校方/家方责任 */
+        }
+
+        /* 列表去AI感排版 */
+        ol, ul {
             padding-left: 20px;
-            margin-bottom: 25px;
+            margin: 15px 0 25px 0;
         }
         li {
-            margin-bottom: 10px;
             font-size: 14px;
-            color: #334155;
+            color: #4a423c;
+            margin-bottom: 12px;
             text-align: justify;
         }
         li strong {
-            color: #0f766e;
+            color: #1a1715;
+            font-weight: 600;
         }
         
-        /* 强调呼应框 */
-        .callout-card {
-            background-color: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            padding: 18px;
-            margin: 20px 0;
+        /* 预习流程图章感样式 */
+        .step-list {
+            list-style: none;
+            padding-left: 0;
         }
-        .callout-card h4 {
-            margin: 0 0 8px 0;
-            color: #1e293b;
-            font-size: 15px;
+        .step-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 18px;
         }
-        .callout-card p {
-            margin: 0;
-            font-size: 14px;
-            color: #475569;
+        .step-list li .step-num {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 22px;
+            height: 22px;
+            background-color: #4a6b5d;
+            color: #ffffff;
+            font-size: 11px;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 50%;
+            font-weight: bold;
         }
 
-        /* 快捷导航/落款 */
-        .footer {
-            margin-top: 5px;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
+        /* 强调笔记卡片：像书页里夹着的手写便签 */
+        .teacher-note {
+            background-color: #f7f6f2;
+            border: 1px dashed #d9d2c5;
+            padding: 20px 25px;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #5a524a;
+            position: relative;
+        }
+        .teacher-note::before {
+            content: "💡 老师心里话：";
+            display: block;
+            font-weight: bold;
+            color: #b35431;
+            margin-bottom: 8px;
+        }
+        
+        /* 尾页寄语 */
+        .sign-off {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #2c2724;
             text-align: center;
-            color: #94a3b8;
-            font-size: 13px;
+            font-family: "Georgia", "Songti SC", serif;
+            font-size: 14px;
+            color: #7c7267;
+        }
+
+        /* 适合手机及平板的响应式调整 */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+            .wrapper {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>家校共育·习惯启航</h1>
-        <p>—— 二年级升三年级家校协同管理契约与行动指南 ——</p>
+<div class="wrapper">
+    <div class="masthead">
+        <span class="tag">家 校 共同 养 成 备 忘</span>
+        <h1>陪孩子走过二升三</h1>
+        <div class="subtitle">咱们班的习惯养成细节与家校心里话</div>
     </div>
 
-    <div class="intro-box">
-        <p><strong>核心理念：先抓习惯，再谈成绩。</strong>孩子的自律与自觉不是一蹴而就的，而是一个漫长且复杂的过程。在孩子尚未形成完全的独立思考能力时，家校双方必须紧密配合、协同监督。帮助孩子度过二升三的关键转型期，把习惯定型，后面的路才会越走越稳。</p>
+    <div class="letter-start">
+        各位家长，孩子马上要升入三年级了。常听人说“二升三是个坎儿”，其实坎儿不在成绩，而在自律性的建立。这个过程很漫长，在孩子还没长出完全的自主思考能力时，咱们在后边盯着、帮着，把习惯定型了，后面的路他就自己能走顺。今天开完家长会，我把大家聊到的痛点以及接下来的做法整理在这儿，不谈大道理，只落地细节。先抓习惯，再谈成绩。
     </div>
 
-    <h2>一、 班级现状问题与家校协同对策对照表</h2>
-    <table>
-        <thead>
-            <tr>
-                <th style="width: 30%;">班级管理存在问题</th>
-                <th style="width: 35%;">学校 / 老师管理聚焦</th>
-                <th style="width: 35%;">家庭 / 家长行动配合</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>1. 课下追逐打闹：</strong>部分男生过于好动，自我约束力较差，课间安全隐患令老师担忧。</td>
-                <td>加强课間巡查与文明游戏引导；即时纠正危险行为；建立班级安全积分与红绿灯规则。</td>
-                <td>严禁让孩子带玩具、零食进校园；日常强化安全与规则教育，教导孩子做到“懂规则、守规矩”。</td>
-            </tr>
-            <tr>
-                <td><strong>2. 课堂专注力不足：</strong>部分学生听课容易走神、做小动作，心思不在课堂上，导致知识点一知半解。</td>
-                <td>优化课堂趣味性与互动问答；运用眼神提示、走动巡视、针对性提问等方式及时提醒走神学生。</td>
-                <td>营造安静单一的家庭学习环境；配合老师抓好孩子的学习态度，定期了解孩子在校的听课状态。</td>
-            </tr>
-            <tr>
-                <td><strong>3. 作业习惯马虎：</strong>写作业拖拉磨蹭、粗心大意、字迹潦草，完工后不会自主检查，高度依赖督促。</td>
-                <td>明确书写规范与作业时效；课内听写字字过关；严格把控课后练习质量，不流于形式。</td>
-                <td>抓态度、抓作业。督促孩子先自我检查再由家长抽查，培养责任心；错题及时规范改正，在质中求快。</td>
-            </tr>
-            <tr>
-                <td><strong>4. 自主意识薄弱：</strong>缺乏主动读书、主动思考的习惯，学习大多靠老师和家长在后面“推着走”。</td>
-                <td>在教学中采用启发式提问激发思考；通过近期亲子阅读打卡等活动，搭建阅读展示和表彰平台。</td>
-                <td><strong>因材施教：</strong>自律的孩子尝试适当放手、适时抽查；不够自律的孩子必须耐心陪伴，持续监督直至习惯定型。</td>
-            </tr>
-            <tr>
-                <td><strong>5. 细节习惯欠缺：</strong>在整理书包、按时作息、认真审题、规范书写等小细节上做得不到位，直接影响效率。</td>
-                <td>在校常态化强调行为规范；将细节习惯融入日常班务管理与少先队评优考核中。</td>
-                <td>坚持以身作则、言传身教；严格卡好作息时间；力所能及的事（如收拾书包、穿衣）坚决让孩子自己做。</td>
-            </tr>
-        </tbody>
-    </table>
+    <h2>一、 老师眼里的“坎儿”：咱们班孩子目前需要对齐的细节</h2>
+    
+    <div class="issue-item">
+        <div class="issue-title"><span>现象 1</span> 课下有些毛躁，安全让人揪心</div>
+        <div class="issue-desc">有些男生太好动，自我约束力弱，下课爱在走廊或教室追逐打闹，老师每天最担心的就是磕碰安全。</div>
+        <div class="action-grid">
+            <div class="action-line"><strong>老师在校盯着：</strong>加强课间巡查，死盯危险动作；在班里建规矩，引导孩子玩斯文、文明的课间游戏。</div>
+            <div class="action-line"><strong>家长在家唠叨：</strong>反复教孩子懂规则、守规矩。反复叮嘱课间不打闹、不疯跑；玩具和零食一律不带进校园。</div>
+        </div>
+    </div>
 
-    <h2>二、 基础行为习惯培养要求（家庭践行八项规范）</h2>
+    <div class="issue-item">
+        <div class="issue-title"><span>现象 2</span> 坐在教室里，心思却飘在外面</div>
+        <div class="issue-desc">部分孩子上课专注力不够，容易走神、手上搞小动作。看着像是坐着在听，实际上知识点漏了半截，回家写作业一知半解。</div>
+        <div class="action-grid">
+            <div class="action-line"><strong>老师在校盯着：</strong>把课讲得更有意思，多互动。眼神随时提醒、走动式讲课，对容易走神的孩子多提问。</div>
+            <div class="action-line"><strong>家长在家唠叨：</strong>家里写作业环境要干净单一（桌上不放玩具、杂物）；多跟老师沟通，掌握孩子在校听课的真实状态。</div>
+        </div>
+    </div>
+
+    <div class="issue-item">
+        <div class="issue-title"><span>现象 3</span> 作业磨磨蹭蹭，不催就不动</div>
+        <div class="issue-desc">写作业粗心马虎、拖拉，字迹潦草像“画符”。做完了扔一边从不主动检查，依赖家长在后面催，少数孩子连家庭练习都不能按时交。</div>
+        <div class="action-grid">
+            <div class="action-line"><strong>老师在校盯着：</strong>卡死书写规范，课内听写字字过关；对拖拉、应付的作业严格要求重写或面批。</div>
+            <div class="action-line"><strong>家长在家唠叨：</strong>帮孩子改掉依赖心。立个规矩：“先自己检查，家长只负责抽查”。写错的字必须规范、反复订正。</div>
+        </div>
+    </div>
+
+    <div class="issue-item">
+        <div class="issue-title"><span>现象 4</span> 缺乏主动性，凡事全靠“推”</div>
+        <div class="issue-desc">自主学习意识薄弱，没有主动看书、主动思考的习惯。不推一下，孩子绝不往前走一步。</div>
+        <div class="action-grid">
+            <div class="action-line"><strong>老师在校盯着：</strong>课上多抛出启发性的问题让孩子动脑；利用好最近班里组织的亲子阅读打卡，多表扬有进步的孩子。</div>
+            <div class="action-line"><strong>家长在家唠叨：</strong>如果孩子本来就自觉，尝试适当放手、适时抽查，给点空间；如果孩子不够自律，那现阶段必须耐心陪伴，推一把、扶一程，帮他把习惯定型。</div>
+        </div>
+    </div>
+
+    <h2>二、 日常生活里，怎么养出有规矩的孩子？</h2>
+    <p style="font-size: 14px; color: #7c7267; margin-bottom: 15px;">好习惯从来不是在教室里凭空长出来的，家庭生活是底子：</p>
     <ol>
-        <li><strong>准时作息：</strong>坚持早睡早起，保证充足的睡眠时间，做到上学不迟到。</li>
-        <li><strong>独立自理：</strong>自己吃饭，自己穿衣，自己整理书包，力所能及的事情一定让孩子自己做，绝不包办代替。</li>
-        <li><strong>文明交往：</strong>讲文明，有礼貌，与同学友好相处。正确对待和处理同学间的小矛盾，引导孩子先找自身原因，做到心胸宽广，爱护而不溺爱。</li>
-        <li><strong>公共礼仪：</strong>在公共场合克制个人言行，保持安静，不要大声吵闹，培养良好的公共行为习惯。</li>
-        <li><strong>劳动参与：</strong>家庭生活中，主动鼓励并分配孩子做一些力所能及的家务劳动，培养家庭责任感。</li>
-        <li><strong>物权意识：</strong>保管好自己的个人物品；捡到东西要及时归还，别人的东西绝对不能拿，建立清晰的边界感。</li>
-        <li><strong>勇敢表达：</strong>刻意在家庭交流中培养孩子大胆说话、落落大方地表达自己真实想法的习惯。</li>
-        <li><strong>规矩意识：</strong>教育孩子心存规则，做事情要遵循社会规范与班级纪律，懂得有所为、有所不为。</li>
+        <li><strong>作息卡死：</strong>坚持早睡早起，觉睡饱了上课才不打瞌睡，上学坚决不迟到。</li>
+        <li><strong>自己的事自己干：</strong>自己吃饭、自己穿衣服。每天晚上，必须由孩子<strong>自己整理书包</strong>，哪怕落了东西挨批评也是他自己承担。家长绝不包办代替。</li>
+        <li><strong>教孩子怎么跟人相处：</strong>讲文明，懂礼貌。同学之间闹点小矛盾，家长别急着介入，先引导孩子找找自己的原因，教孩子把心胸放宽广。但在校如果真受了委屈或身体不舒服，一定叫孩子主动去找老师说，别憋着。</li>
+        <li><strong>出门看场合：</strong>去公共场合（餐厅、图书馆等）不要大声喧哗吵闹，养出分寸感。</li>
+        <li><strong>家务别缺席：</strong>让孩子分担点力所能及的家务（倒垃圾、摆碗筷），让他知道自己是家里的一个小成员。</li>
+        <li><strong>清爽的物权观：</strong>自己的东西收好，捡到别人的东西主动交还，别人的东西没经过允许，一星半点都绝对不能拿。</li>
     </ol>
 
-    <h2>三、 核心学习习惯及执行标准</h2>
-    <p style="font-size: 14px; color: #475569;">面对二年级下学期向三年级的跨越，家校双方必须落实以下标准化流程：</p>
+    <h2>三、 语文硬功夫：二升三得这么练</h2>
+    <p style="font-size: 14px; color: #7c7267; margin-bottom: 20px;">“双减”和健康管理背景下，作业少了，不是不让学，而是筛选习惯。咱们班接下来的标准得这么走：</p>
 
-    <h3>（一）关于课前预习（严格执行“五字诀”）</h3>
-    <p style="font-size: 14px; font-weight: bold; color: #115e59;">要把预习真正落实到位，每次新课前监督孩子完成：</p>
-    <ul>
-        <li><strong>① 读：</strong>朗读课文至少2遍。遇到难读的字词句反复练读，达到读准字词、读通句子、全文流畅的程度。</li>
-        <li><strong>② 标：</strong>在文中标注出自然段序号或诗歌的节号。</li>
-        <li><strong>③ 圈：</strong>对照词语表，在课文中圈画出目标词语，同时显著圈出一类字和二类字。</li>
-        <li><strong>④ 写：</strong>二类字要求查字典，写出部首、结构并进行组词；一类字在书上规范写出字的部首和结构。</li>
-        <li><strong>⑤ 问：</strong>结合课本插图初步了解课文主要内容，思考课后习题，带着未解的疑问去上课。</li>
+    <h3>（一）新课前的预习“五字诀”</h3>
+    <ul class="step-list">
+        <li>
+            <span class="step-num">1</span>
+            <strong>读：</strong>课文至少出声朗读2遍。磕磕绊绊的句子反复读，直到读准字音、读得流利。
+        </li>
+        <li>
+            <span class="step-num">2</span>
+            <strong>标：</strong>顺手标好自然段的序号（诗歌标好节号）。
+        </li>
+        <li>
+            <span class="step-num">3</span>
+            <strong>圈：</strong>翻到后面的词语表，把这些词在课文里一个个圈出来，一二类字也要显眼地圈好。
+        </li>
+        <li>
+            <span class="step-num">4</span>
+            <strong>写：</strong>生字过关。二类字查查字典，在书上记下部首、结构和组词；一类字把部首和结构写在旁边。
+        </li>
+        <li>
+            <span class="step-num">5</span>
+            <strong>问：</strong>看课本插图想想这篇课文大概讲了啥，看看课后题，带着一两个小问号第二天来上课。
+        </li>
     </ul>
 
-    <h3>（二）关于重视复习（基础落实与过关）</h3>
+    <h3>（二）日常复习的过关重点</h3>
     <ul>
-        <li><strong>“三表”全面落地：</strong>紧抓写字表（熟练掌握结构、部首、笔画、音序、组词、造句）、识字表（会认、会组词、掌握蓝色多音字）和词语表（会写、会默）。</li>
-        <li><strong>错题清零行动：</strong>练习本、作业本中写错的字词，必须督促孩子规范、反复地改正，课外补充错题及时订正，书写必须字迹工整。</li>
-        <li><strong>理解与背诵：</strong>要求背诵的课文及日积月累必背，不要求的要达到熟读；课后练习题、语文园地的写话和口语交际必须充分理解加会做。</li>
+        <li><strong>“三表”是地基：</strong>“写写字表”（结构部首笔画音序组词造句都要会）、“识字表”（会认、会组词、注意蓝色多音字）、“词语表”（默写字字过关）。</li>
+        <li><strong>死磕错别字：</strong>练习本和作业本里写错的字，家长别放过。盯着孩子规范地反思改正，课外补充的错题也要及时清零。</li>
+        <li><strong>课后题和园地：</strong>要求背的课文必须背得一字不差，不要求的要熟读。语文园地里的“日积月累”、“口语交际”和“写话”是核心，要在日常交流里多鼓励孩子用起来。</li>
     </ul>
 
-    <h3>（三）关于二下写话至三年级习作的跃升转型（“五步训练法”）</h3>
-    <div class="callout-card">
-        <h4>💡 转型背景与字数变化</h4>
-        <p>二年级下学期的写话字数要求在 100-150 字左右。为了给三年级作文做准备，字数需要逐步过渡到 200-250 字。动笔前，请按以下五步引导孩子：</p>
-    </div>
+    <h3>（三）写话到作文：怎么陪孩子跨过“250字”这道关？</h3>
+    <p style="font-size: 14px; color: #4a423c; text-align: justify;">二年级下的写话要求100-150字左右，到了三年级马上变成200-250字的作文。孩子畏难是正常的，咱们动笔前引导孩子走好这五步：</p>
     <ol>
-        <li><strong>第一步：搭框架（看）—— 构筑核心。</strong>牢牢抓住写话四要素：明确交代清楚“什么时候 + 天气/景色 + 谁 + 在哪里 + 干什么”。</li>
-        <li><strong>第二步：加修饰（想）—— 添枝加叶。</strong>引导孩子将平时阅读和课堂中积累的好词好句巧妙代入。加入形容词（怎样的天空）、比喻句、精准的量词（一只小鸟）和副词（开心地跑），让表达更生动。</li>
-        <li><strong>第三步：身临其境（想）—— 换位思考。</strong>引导孩子想象图中人物看到了什么、听到了什么、想到了什么、会说什么、会做什么，最终结果怎样，心情如何，以及有什么收获或道理。</li>
-        <li><strong>第四步：突出重点画面 —— 拒绝平铺直叙。</strong>针对核心的人物活动或关键情节，必须详写动作、细写语言，让画面“活”起来。</li>
-        <li><strong>第五步：段落布局与说连贯（说与写）—— 先说后写。</strong>学会段落的合理划分。动笔前，先让孩子按顺序把故事完整、连贯地口头说几遍，争取每次比上次更具体，再落笔成文。</li>
+        <li><strong>看（搭框架）：</strong>先别急着写。让孩子看图或想主题，把四要素拎清：什么时候、天气景色如何、谁、在哪里、在干什么。</li>
+        <li><strong>想（加修饰）：</strong>教孩子“添枝加叶”。把阅读和课上学到的好词句塞进去。想一想，用什么形容词（什么样的天空）？能不能加个比喻句？用上恰当的量词和副词。</li>
+        <li><strong>思（身临其境）：</strong>教孩子换位思考：“如果是你，在那个场景里，你看到了什么？听到了什么？想到了什么？会说点啥？最后心情怎么样？明白了什么道理？”</li>
+        <li><strong>抓（突出重点）：</strong>不要记流水账。挑出最主要的那个画面（比如人物正在干活或者玩耍），把他的动作、神态、说的话写详细。</li>
+        <li><strong>说（先说后写）：</strong><strong>这个方法最管用！</strong>动笔前让孩子按顺序把故事口头说给您听，多说几遍，一遍比一遍说得具体生动，说顺了再让他动笔写，段落分好，手到擒来。</li>
     </ol>
 
-    <h2>四、 高品质家长的五大自我定位</h2>
-    <table>
-        <thead>
-            <tr>
-                <th style="width: 25%;">角色定位</th>
-                <th style="width: 75%;">核心行动准则</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>1. 榜样型家长</strong></td>
-                <td>以身作则，言传身教。在数字化时代给孩子树立良好的作息习惯与阅读学习榜样。</td>
-            </tr>
-            <tr>
-                <td><strong>2. 监督型家长</strong></td>
-                <td>严格监督作业与作息。双减背景下，周末作业是“筛选习惯”的重要抓手，口头、复习、预习作业也容不得半点草率。</td>
-            </tr>
-            <tr>
-                <td><strong>3. 细心型家长</strong></td>
-                <td>日常辅导要有足够的耐心与长期的连续性。细心留意孩子的学习技能，要求想问题、做作业时在“质中求快”。</td>
-            </tr>
-            <tr>
-                <td><strong>4. 民主型家长</strong></td>
-                <td>尊重孩子，包容理解。允许孩子在习惯建立初期出现反复，用科学的方法进行循循善诱，而不是一味指责。</td>
-            </tr>
-            <tr>
-                <td><strong>5. 智慧型家长</strong></td>
-                <td>因材施教。利用课余时间鼓励孩子学会观察与思考，着重抓好孩子的观察力、注意力、记忆力、想象力与思维力。</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="teacher-note">
+        关于看书，咱们全家都要给孩子做榜样，家里留出个安静的阅读角。鼓励孩子自己订阅读计划、攒好词好句。读完书，多让孩子跟您吹吹牛、聊聊书里的想法。阅读这事急功近利不得，得静等花开。
+    </div>
 
-    <h2>五、 家校长效沟通与健康协同机制</h2>
+    <h2>四、 给家长的几句心里话</h2>
+    <p style="font-size: 14px; color: #4a423c; text-align: justify;">咱们家长在家里，不妨学着给自己做这五个定位：</p>
     <ul>
-        <li><strong>维护教师威信：</strong>“尊其师，才能信其道”。家长在孩子面前不要随意谈论或负面评价老师，随时主动与代课老师做好理性沟通，了解孩子的在校情况。</li>
-        <li><strong>强化主动沟通：</strong>教育孩子在校若发生意外、身体不适或有小矛盾时，请让孩子第一时间主动找老师沟通交流，学会信任学校和老师。</li>
-        <li><strong>推进健康管理：</strong>在双减和健康管理背景下，家长应积极督促孩子多运动，坚持体育锻炼、增强体质，确保身心健康长远发展。</li>
+        <li><strong>当个榜样：</strong>言传身教，自己少刷点手机，多看点书，作息规律。</li>
+        <li><strong>当个监督员：</strong>作业不拖拉，周末作业是筛选习惯的最好时机，口头、复习作业也别应付。辅导一定要有耐心，别间断。</li>
+        <li><strong>当个细心人：</strong>多留意孩子的技巧，算题、写字不光求对，还要在有质量的前提下求快，练出利索劲儿。</li>
+        <li><strong>当个民主长辈：</strong>包容理解孩子。习惯建立的过程中孩子肯定会有反复，多跟孩子沟通，因材施教。</li>
+        <li><strong>维护老师的威信：</strong>“尊其师，才能信其道”。有啥情况随时和当代课老师沟通了解，但千万别在孩子面前议论或抱怨老师，不然孩子对老师不信任，吃亏的是孩子自己。</li>
     </ul>
 
-    <div class="footer">
-        <p>最优的教育，是老师含辛茹苦的执着；最好的补位，是家长永不缺席的陪伴。让我们携手并进！</p>
+    <div class="sign-off">
+        <p>最优的教育，是老师含辛茹苦的执着；最好的补位，是家长永不缺席的陪伴。</p>
+        <p style="font-size: 12px; margin-top: 15px; letter-spacing: 1px;">咱们一起，给孩子鼓劲！</p>
     </div>
 </div>
 
 </body>
 </html>
-"""
+    f.write(html_content_v2)
 
-# Save the content to an HTML file
-file_name = "home_school_cooperative_guidelines.html"
-with open(file_name, "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print(f"File {file_name} successfully created.")
+print(f"File {file_name_v2} successfully created.")
