@@ -3,259 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人主页</title>
+    <title>个人主页 - Markdown Style</title>
     <style>
-        /* --- 全局变量与重置 --- */
+        /* --- 核心排版设置 (模仿 GitHub/GitLab Markdown) --- */
         :root {
-            --primary-color: #ff9900; /* 经典QQ橙 */
-            --secondary-color: #ffcc00; /* 亮黄 */
-            --text-dark: #333333;
-            --text-light: #666666;
-            --bg-color: #f4f5f7;
-            --card-bg: #ffffff;
-            --radius: 12px;
-            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --text-main: #24292e;       /* 深灰正文 */
+            --text-secondary: #586069;  /* 浅灰辅助文字 */
+            --link-color: #d35400;      /* 经典的深橙色，比亮黄更稳重 */
+            --bg-color: #ffffff;
+            --code-bg: #f6f8fa;
+            --border-color: #eaecef;
+            --quote-border: #ff9900;    /* 引用块的橙色线条 */
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
         }
 
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-
-        /* --- 顶部 Hero 区域 (背景图) --- */
-        .hero-banner {
-            height: 300px;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); 
-            /* 这里可以换成你喜欢的图片URL */
-            background-size: cover;
-            background-position: center;
-            position: relative;
+        /* 容器限制宽度，模拟文档阅读体验 */
+        .markdown-body {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        /* --- 主容器 --- */
-        .container {
-            max-width: 900px;
-            margin: -80px auto 40px; /* 负边距实现卡片上浮效果 */
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* --- 个人信息卡片 --- */
-        .profile-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            object-fit: cover;
-            margin-top: -100px; /* 让头像突出一部分到Banner上 */
-            background-color: #eee;
-        }
-
-        .name {
-            font-size: 28px;
-            font-weight: 700;
-            margin: 15px 0 5px;
-            color: var(--text-dark);
-        }
-
-        .bio {
-            color: var(--text-light);
-            font-size: 16px;
-            margin-bottom: 25px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- 社交按钮 --- */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            padding: 10px 25px;
-            border-radius: 50px;
+        /* --- 标题样式 --- */
+        h1, h2, h3, h4 {
+            margin-top: 24px;
+            margin-bottom: 16px;
             font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.2s, box-shadow 0.2s;
+            line-height: 1.25;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
         }
 
-        .btn-primary {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
-        }
+        h1 { font-size: 2em; border-bottom: none; margin-bottom: 0.5em; }
+        h2 { font-size: 1.5em; }
+        h3 { font-size: 1.25em; }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #ddd;
-            color: var(--text-light);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        /* --- 内容网格 (关于我/作品) --- */
-        .grid-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .info-box {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--primary-color);
-            padding-left: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        /* --- 技能标签 --- */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tag {
-            background: #fff5e6; /* 浅橙色背景 */
-            color: #d67d00;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 13px;
+        /* --- 文本元素 --- */
+        p { margin-bottom: 16px; }
+        
+        a { 
+            color: var(--link-color); 
+            text-decoration: none; 
             font-weight: 500;
         }
+        a:hover { text-decoration: underline; }
 
-        /* --- 时间轴/动态 --- */
-        .timeline-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #eee;
-        }
-        .timeline-item:last-child { border-bottom: none; }
-        
-        .date {
-            font-size: 12px;
-            color: #999;
-            margin-bottom: 5px;
-            display: block;
+        strong { font-weight: 600; }
+
+        /* --- 引用块 (Blockquote) --- */
+        blockquote {
+            padding: 0 1em;
+            color: var(--text-secondary);
+            border-left: 0.25em solid var(--quote-border); /* 橙色左边框 */
+            margin: 0 0 16px 0;
+            background-color: #fffaf0; /* 极淡的橙色背景 */
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
         }
 
-        /* --- 底部 --- */
+        /* --- 列表 --- */
+        ul, ol {
+            padding-left: 2em;
+            margin-bottom: 16px;
+        }
+        li { margin-bottom: 0.25em; }
+
+        /* --- 代码块 --- */
+        code {
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            background-color: var(--code-bg);
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            color: #d35400;
+        }
+
+        pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: var(--code-bg);
+            border-radius: 3px;
+            margin-bottom: 16px;
+        }
+
+        /* --- 分割线 --- */
+        hr {
+            height: 0.25em;
+            padding: 0;
+            margin: 24px 0;
+            background-color: var(--border-color);
+            border: 0;
+        }
+
+        /* --- 表格 --- */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 6px 13px;
+        }
+        th { background-color: #f6f8fa; font-weight: 600; }
+
+        /* --- 底部版权 --- */
         footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9em;
             text-align: center;
-            padding: 40px 0;
-            color: #999;
-            font-size: 13px;
         }
 
         /* --- 响应式微调 --- */
         @media (max-width: 600px) {
-            .hero-banner { height: 200px; }
-            .avatar { width: 100px; height: 100px; margin-top: -50px; }
-            .container { margin-top: -50px; }
+            .markdown-body { padding: 20px; }
+            h1 { font-size: 1.8em; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部背景图 -->
-    <div class="hero-banner"></div>
+    <div class="markdown-body">
+        <!-- 头部信息 -->
+        <h1>你好，我是轻舞飞扬 👋</h1>
+        <p>一名 <strong>全栈开发者</strong> / <strong>UI设计师</strong> / <strong>复古互联网爱好者</strong>。</p>
+        
+        <blockquote>
+            “保持简单，保持愚蠢。” —— 专注于构建清晰、高效且美观的数字产品。
+        </blockquote>
 
-    <div class="container">
-        <!-- 核心个人资料卡片 -->
-        <div class="profile-card">
-            <!-- 请替换下面的 src 为你的头像链接 -->
-            <img src="https://ui-avatars.com/api/?name=User&background=random&size=256" alt="Avatar" class="avatar">
-            
-            <h1 class="name">轻舞飞扬</h1>
-            <p class="bio">热爱生活，记录点滴。一个喜欢摄影和编程的互联网观察者。</p>
-            
-            <div class="social-links">
-                <button class="btn btn-primary">关注我</button>
-                <button class="btn btn-outline">发私信</button>
-            </div>
-        </div>
+        <!-- 关于我 -->
+        <h2>📝 关于我</h2>
+        <p>我喜欢折腾代码和设计。在这个复杂的互联网世界里，我更倾向于回归内容本身。这个页面就是我对 <code>Less is More</code> 的一次实践。</p>
+        <ul>
+            <li>📍 坐标：中国 · 互联网</li>
+            <li>💻 技术栈：<code>HTML/CSS</code>, <code>JavaScript</code>, <code>Python</code></li>
+            <li>🎨 爱好：像素画、合成器波音乐、收集旧软件</li>
+        </ul>
 
-        <!-- 下方双栏布局 -->
-        <div class="grid-section">
-            
-            <!-- 左侧：关于我/技能 -->
-            <div class="info-box">
-                <div class="section-title">关于我</div>
-                <p style="margin-bottom: 20px; color: #666;">
-                    这里是你的详细介绍区域。你可以写你的兴趣爱好、职业背景或者任何想说的话。保持简洁明了最好。
-                </p>
-                
-                <div class="section-title" style="font-size: 16px; margin-top: 30px;">技能标签</div>
-                <div class="tags">
-                    <span class="tag">HTML/CSS</span>
-                    <span class="tag">摄影</span>
-                    <span class="tag">旅行</span>
-                    <span class="tag">写作</span>
-                    <span class="tag">视频剪辑</span>
-                </div>
-            </div>
+        <!-- 项目经历 -->
+        <h2>🚀 项目经历</h2>
+        
+        <h3>1. 经典QQ空间复刻计划</h3>
+        <p>试图用现代 Web 技术还原 2005 年的 QQ 空间体验，但去掉了所有的 Flash 广告。</p>
+        <ul>
+            <li><strong>角色：</strong> 独立开发</li>
+            <li><strong>成果：</strong> 实现了全屏自适应布局，保留了经典的橙色视觉体系。</li>
+        </ul>
 
-            <!-- 右侧：最新动态/作品 -->
-            <div class="info-box">
-                <div class="section-title">最新动态</div>
-                
-                <div class="timeline-item">
-                    <span class="date">2023-10-24</span>
-                    <p>今天天气真不错，去公园拍了一组秋日的照片，感觉光影很棒。</p>
-                </div>
+        <h3>2. Markdown 简历生成器</h3>
+        <p>一个可以将 Markdown 文本实时转换为精美 PDF 简历的小工具。</p>
 
-                <div class="timeline-item">
-                    <span class="date">2023-10-20</span>
-                    <p>终于把这个个人主页的代码写完了，采用了经典的橙色调，致敬那个年代。</p>
-                </div>
+        <!-- 技能栈表格 -->
+        <h2>🛠 技能清单</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>领域</th>
+                    <th>技能点</th>
+                    <th>熟练度</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>前端开发</td>
+                    <td>Vue.js, React, TailwindCSS</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>后端开发</td>
+                    <td>Node.js, Django</td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>设计工具</td>
+                    <td>Figma, Photoshop</td>
+                    <td>⭐⭐⭐⭐</td>
+                </tr>
+            </tbody>
+        </table>
 
-                <div class="timeline-item">
-                    <span class="date">2023-10-15</span>
-                    <p>分享一首好听的歌：《晴天》。</p>
-                </div>
-            </div>
+        <!-- 联系方式 -->
+        <h2>📬 联系我</h2>
+        <p>如果你对我的工作感兴趣，或者只是想聊聊复古互联网，欢迎通过以下方式联系：</p>
+        <ul>
+            <li>Email: <a href="mailto:example@qq.com">example@qq.com</a></li>
+            <li>GitHub: <a href="#">@lightdance</a></li>
+            <li>WeChat: <code>LightDance_2005</code></li>
+        </ul>
 
-        </div>
+        <hr>
+
+        <footer>
+            <p>© 2024 轻舞飞扬. Powered by Markdown Style.</p>
+        </footer>
     </div>
-
-    <footer>
-        <p>&copy; 2023 轻舞飞扬的个人主页 | Powered by Simple Code</p>
-    </footer>
 
 </body>
 </html>
