@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>轻舞飞扬的QQ空间</title>
+    <title>轻舞飞扬的QQ空间 - 全屏版</title>
     <style>
         /* 全局重置 */
         * {
@@ -14,149 +14,142 @@
 
         body {
             font-family: "SimSun", "宋体", sans-serif; /* 经典的宋体字 */
-            background-color: #f0f0f0;
+            background-color: #e6e6e6; /* 背景灰 */
             font-size: 12px;
             color: #333;
-            display: flex;
-            justify-content: center;
-            padding-top: 20px;
+            min-height: 100vh;
         }
 
-        /* 主容器 - 模拟窗口 */
+        /* 主容器 - 自适应全屏，但设置最大宽度保持美观 */
         .container {
-            width: 960px;
+            width: 100%;
+            max-width: 1400px; /* 防止在大屏上太散 */
+            margin: 0 auto; /* 居中 */
             background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        /* 顶部标题栏 (蓝色部分) */
-        .window-header {
-            background: linear-gradient(to bottom, #4d9aff, #007bff);
-            height: 30px;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 10px;
-            color: white;
-            font-weight: bold;
+            flex-direction: column;
         }
 
-        .window-controls span {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            text-align: center;
-            border: 1px solid #fff;
-            margin-left: 5px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-
-        /* 头部横幅区域 (橙色渐变) */
-        .header-banner {
-            background: linear-gradient(to bottom, #ffcc00, #ff9900);
-            height: 120px;
+        /* 顶部Banner区域 (橙色渐变) */
+        .banner {
+            background: linear-gradient(to bottom, #ffcc00 0%, #ff9900 100%);
+            padding: 20px 30px;
             position: relative;
-            padding: 20px;
-            color: white;
+            height: 150px;
+            border-bottom: 4px solid #fff; /* 分割线 */
         }
 
-        .header-title {
+        .banner h1 {
             font-size: 24px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
-        .header-subtitle {
+        .banner p {
+            color: #fff;
             font-size: 12px;
-            margin-top: 10px;
-            text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
         }
 
-        /* 装饰图标 */
-        .icon-deco {
+        /* 装饰性小图标位置 (模拟) */
+        .decoration-icon {
             position: absolute;
-            width: 30px;
-            height: 30px;
+            right: 30px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            background: url('https://placehold.co/40x40/orange/white?text=Icon') no-repeat center; /* 占位图 */
+            opacity: 0.8;
         }
-        .deco-1 { top: 10px; right: 100px; transform: rotate(15deg); }
-        .deco-2 { top: 20px; right: 50px; }
 
         /* 导航栏 */
         .nav-bar {
-            background-color: #ffebcd; /* 浅橙色背景 */
-            border-bottom: 2px solid #ff9900;
+            background-color: #fcf8e3; /* 浅黄背景 */
+            border-bottom: 1px solid #e0cfa3;
+            padding-left: 20px;
             display: flex;
-            padding-left: 10px;
+            align-items: flex-end;
         }
 
         .nav-item {
             padding: 8px 20px;
             cursor: pointer;
-            font-weight: bold;
             color: #666;
-            border-right: 1px solid #e0c0a0;
+            font-weight: bold;
+            border: 1px solid transparent;
+            margin-right: 5px;
+            position: relative;
+            top: 1px; /* 盖住底边框 */
         }
 
         .nav-item.active {
             background-color: #fff;
             color: #ff6600;
-            border-top: 2px solid #ff6600;
-            margin-top: -2px; /* 为了盖住上面的线 */
+            border: 1px solid #e0cfa3;
+            border-bottom: 1px solid #fff;
+            border-top: 2px solid #ff9900;
         }
 
-        .nav-item:hover {
-            background-color: #fffaf0;
+        .nav-item:hover:not(.active) {
+            color: #ff6600;
         }
 
-        /* 主体内容区 */
+        /* 主体内容区 - Flex布局实现左右分栏 */
         .main-content {
             display: flex;
-            padding: 10px;
+            flex: 1; /* 撑满剩余高度 */
+            padding: 15px;
+            gap: 15px;
             background-color: #fff;
-            min-height: 500px;
         }
 
-        /* 左侧栏 */
+        /* 左侧栏 (个人档 + 心情) */
         .left-col {
-            width: 250px;
-            margin-right: 10px;
+            width: 280px; /* 固定宽度或百分比 */
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        /* 中间栏 */
+        /* 中间栏 (最近访客) */
         .mid-col {
-            flex: 1;
-            margin-right: 10px;
+            flex: 1; /* 占据剩余空间 */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        /* 右侧栏 */
+        /* 右侧栏 (头像信息) */
         .right-col {
-            width: 200px;
+            width: 220px;
+            flex-shrink: 0;
             text-align: center;
+            border-left: 1px dashed #ccc;
+            padding-left: 15px;
         }
 
-        /* 模块通用样式 */
+        /* 通用模块样式 */
         .module {
-            border: 1px solid #ffcc99;
-            margin-bottom: 10px;
+            border: 1px solid #e0cfa3;
             background-color: #fff;
         }
 
         .module-header {
-            background: linear-gradient(to bottom, #ffe0b2, #ffcc80);
+            background: linear-gradient(to bottom, #ffeaa7 0%, #fdcb6e 100%);
             padding: 5px 10px;
-            font-weight: bold;
             color: #d35400;
-            border-bottom: 1px solid #ffcc99;
+            font-weight: bold;
+            border-bottom: 1px solid #e0cfa3;
         }
 
         .module-body {
             padding: 10px;
         }
 
-        /* 个人档特定样式 */
+        /* 个人档具体内容 */
         .profile-info {
             display: flex;
             gap: 10px;
@@ -164,8 +157,8 @@
         .avatar-small {
             width: 50px;
             height: 50px;
-            border: 1px solid #ccc;
             background-color: #eee;
+            border: 1px solid #ccc;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -173,27 +166,31 @@
             color: #999;
         }
         .info-text p {
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             line-height: 1.4;
         }
         .signature {
             color: #ff6600;
             font-style: italic;
+            margin-top: 5px;
         }
 
         /* 心情说说列表 */
-        .mood-list {
+        .mood-list li {
             list-style: none;
-        }
-        .mood-item {
-            margin-bottom: 15px;
             border-bottom: 1px dashed #eee;
-            padding-bottom: 5px;
+            padding: 8px 0;
         }
-        .mood-date {
+        .mood-list li:last-child {
+            border-bottom: none;
+        }
+        .mood-text {
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .mood-meta {
             color: #999;
             font-size: 11px;
-            margin-top: 2px;
         }
 
         /* 最近访客列表 */
@@ -203,232 +200,228 @@
         .visitor-item {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
-            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dotted #eee;
         }
-        .visitor-name {
-            display: flex;
-            align-items: center;
-        }
-        .visitor-icon {
-            width: 20px;
-            height: 20px;
+        .visitor-avatar {
+            width: 30px;
+            height: 30px;
             background-color: #ddd;
             border-radius: 50%;
-            margin-right: 8px;
-            display: inline-block;
+            margin-right: 10px;
+        }
+        .visitor-name {
+            flex: 1;
+            font-weight: bold;
+            color: #555;
         }
         .visitor-time {
             color: #999;
             font-size: 11px;
         }
 
-        /* 右侧个人信息 */
-        .big-avatar {
-            width: 100px;
-            height: 100px;
-            border: 3px solid #ffcc00;
+        /* 右侧大头像区域 */
+        .big-avatar-box {
+            width: 120px;
+            height: 120px;
+            border: 4px solid #ffcc00;
             margin: 0 auto 10px;
             background-color: #eee;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            color: #666;
+            color: #999;
         }
         .user-nickname {
             font-size: 16px;
             font-weight: bold;
-            color: #ff6600;
+            color: #333;
             margin-bottom: 5px;
         }
         .level-info {
-            font-size: 11px;
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             line-height: 1.6;
         }
         .vip-badge {
-            background: linear-gradient(to right, #ffd700, #ffaa00);
+            background-color: #ffcc00;
             color: #fff;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-weight: bold;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 10px;
             display: inline-block;
             margin-bottom: 10px;
-            border: 1px solid #fff;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
         .stats {
-            font-size: 11px;
+            text-align: left;
+            margin: 0 auto;
+            width: fit-content;
             color: #666;
             line-height: 1.8;
         }
 
-        /* 底部音乐条 */
-        .music-bar {
-            background-color: #fffbe6;
-            border-top: 1px solid #ffcc99;
-            padding: 5px 10px;
+        /* 底部播放器 */
+        .footer-player {
+            background-color: #fcf8e3;
+            border-top: 1px solid #e0cfa3;
+            padding: 8px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
+            color: #666;
         }
-        .music-controls button {
-            background: none;
+        .player-controls button {
+            background: #fff;
             border: 1px solid #ccc;
-            padding: 2px 5px;
+            padding: 2px 8px;
             cursor: pointer;
-            font-size: 10px;
+            font-size: 11px;
         }
 
-        /* 简单的图标模拟 */
-        .star { color: gold; }
-        .moon { color: silver; }
-        
+        /* 响应式调整：屏幕变窄时堆叠布局 */
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .left-col, .mid-col, .right-col {
+                width: 100%;
+                border-left: none;
+            }
+            .right-col {
+                border-top: 1px dashed #ccc;
+                padding-top: 15px;
+                padding-left: 0;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- 顶部蓝色标题栏 -->
-    <div class="window-header">
-        <div>轻舞飞扬的QQ空间</div>
-        <div class="window-controls">
-            <span>_</span>
-            <span>□</span>
-            <span>X</span>
-        </div>
+    <!-- 顶部 Banner -->
+    <div class="banner">
+        <h1>轻舞飞扬 的QQ空间</h1>
+        <p>★欢迎来到我的空间，记得留言哦~ 踩踩更健康，跑堂是小狗！★ 今日天气：晴，适合想你z</p>
+        <div class="decoration-icon"></div>
     </div>
 
-    <!-- 橙色大横幅 -->
-    <div class="header-banner">
-        <div class="header-title">轻舞飞扬 的QQ空间</div>
-        <div class="header-subtitle">★欢迎来到我的空间，记得留言哦~ 踩踩更健康，跑堂是小狗！★ 今日天气：晴，适合想你♪</div>
-        
-        <!-- 装饰小图标占位 -->
-        <div style="position:absolute; top:10px; right:150px; font-size:20px;">✏️</div>
-        <div style="position:absolute; top:10px; right:80px; font-size:20px;">🌼</div>
-        <div style="position:absolute; top:50px; right:20px; font-size:20px;">✨</div>
-    </div>
-
-    <!-- 导航菜单 -->
+    <!-- 导航栏 -->
     <div class="nav-bar">
         <div class="nav-item active">主页</div>
         <div class="nav-item">日志</div>
         <div class="nav-item">相册</div>
         <div class="nav-item">留言板</div>
-        <div class="nav-item">农场 🥬</div>
+        <div class="nav-item">农场 🌱</div>
     </div>
 
-    <!-- 主体三栏布局 -->
+    <!-- 主体内容 -->
     <div class="main-content">
         
-        <!-- 左栏：个人档 & 心情 -->
+        <!-- 左侧栏 -->
         <div class="left-col">
+            <!-- 个人档 -->
             <div class="module">
                 <div class="module-header">个人档</div>
                 <div class="module-body profile-info">
                     <div class="avatar-small">头像</div>
                     <div class="info-text">
-                        <p><strong>轻舞飞扬</strong> (女, 16岁)</p>
-                        <p>来自：火星 • 在线时长：520小时</p>
-                        <p class="signature">签名：我可以躲进你的身体♪</p>
+                        <p><strong>轻舞飞扬</strong> (女，16岁)</p>
+                        <p>来自：火星 · 在线时长：520小时</p>
+                        <p class="signature">签名：我可以躲进你的身体♂</p>
                     </div>
                 </div>
             </div>
 
+            <!-- 心情说说 -->
             <div class="module">
                 <div class="module-header">心情说说</div>
                 <div class="module-body">
                     <ul class="mood-list">
-                        <li class="mood-item">
-                            <div>今天的阳光真好，适合想念一个人... (∩_∩)</div>
-                            <div class="mood-date">2005-08-28 14:32 · 轻舞飞扬</div>
+                        <li>
+                            <div class="mood-text">今天的阳光真好，适合想念一个人... (∩_∩)</div>
+                            <div class="mood-meta">2005-08-28 14:32 · 轻舞飞扬</div>
                         </li>
-                        <li class="mood-item">
-                            <div>超女总决赛倒计时！春春一定要拿冠军!! o(>_&lt;)o</div>
-                            <div class="mood-date">2005-08-25 20:15 · 轻舞飞扬</div>
+                        <li>
+                            <div class="mood-text">超女总决赛倒计时！春春一定要拿冠军!! o(>_&lt;)o</div>
+                            <div class="mood-meta">2005-08-25 20:15 · 轻舞飞扬</div>
                         </li>
-                        <li class="mood-item">
-                            <div>新换的空间皮肤好看吗？踩踩不跑堂~ 跑堂是小狗!</div>
-                            <div class="mood-date">2005-08-20 09:48 · 轻舞飞扬</div>
+                        <li>
+                            <div class="mood-text">新换的空间皮肤好看吗？踩踩不跑堂，跑堂是小狗！</div>
+                            <div class="mood-meta">2005-08-20 09:48 · 轻舞飞扬</div>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 中栏：最近访客 -->
+        <!-- 中间栏 -->
         <div class="mid-col">
             <div class="module">
                 <div class="module-header">最近访客</div>
                 <div class="module-body">
                     <ul class="visitor-list">
                         <li class="visitor-item">
-                            <div class="visitor-name"><span class="visitor-icon"></span>痞子蔡</div>
-                            <div class="visitor-time">5分钟前</div>
+                            <div class="visitor-avatar"></div>
+                            <span class="visitor-name">痞子蔡</span>
+                            <span class="visitor-time">5分钟前</span>
                         </li>
                         <li class="visitor-item">
-                            <div class="visitor-name"><span class="visitor-icon"></span>小燕子</div>
-                            <div class="visitor-time">12分钟前</div>
+                            <div class="visitor-avatar"></div>
+                            <span class="visitor-name">小燕子</span>
+                            <span class="visitor-time">12分钟前</span>
                         </li>
                         <li class="visitor-item">
-                            <div class="visitor-name"><span class="visitor-icon"></span>蓝色忧郁</div>
-                            <div class="visitor-time">半小时前</div>
+                            <div class="visitor-avatar"></div>
+                            <span class="visitor-name">蓝色忧郁</span>
+                            <span class="visitor-time">半小时前</span>
                         </li>
                         <li class="visitor-item">
-                            <div class="visitor-name"><span class="visitor-icon"></span>追风少年</div>
-                            <div class="visitor-time">1小时前</div>
+                            <div class="visitor-avatar"></div>
+                            <span class="visitor-name">追风少年</span>
+                            <span class="visitor-time">1小时前</span>
                         </li>
                         <li class="visitor-item">
-                            <div class="visitor-name"><span class="visitor-icon"></span>水晶之恋</div>
-                            <div class="visitor-time">2小时前</div>
+                            <div class="visitor-avatar"></div>
+                            <span class="visitor-name">水晶之恋</span>
+                            <span class="visitor-time">2小时前</span>
                         </li>
-                        <li class="visitor-item">
-                            <div class="visitor-name"><span class="visitor-icon"></span>建文达人</div>
-                            <div class="visitor-time">昨天 21:40</div>
+                         <li class="visitor-item">
+                            <div class="visitor-avatar"></div>
+                            <span class="visitor-name">建文达人</span>
+                            <span class="visitor-time">昨天 21:40</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 右栏：详细资料 -->
+        <!-- 右侧栏 -->
         <div class="right-col">
-            <div class="big-avatar">企鹅头像</div>
+            <div class="big-avatar-box">企鹅头像</div>
             <div class="user-nickname">轻舞飞扬</div>
-            
             <div class="level-info">
-                QQ等级：<strong>42级</strong><br>
-                <span class="star">☀</span><span class="moon">☾</span><span class="moon">☾</span><span class="star">☆</span><span class="star">☆</span><br>
+                QQ等级：<strong style="color:red">42级</strong><br>
+                ★★★★☆<br>
                 花藤：5级<br>
                 阳光指数：2680
             </div>
-
             <div class="vip-badge">💎 黄钻贵族 LV7</div>
-
             <div class="stats">
                 今日访客：<strong>68</strong><br>
-                总访问量：128,493
+                总访问量：<strong>128,493</strong>
             </div>
-            
-            <div style="margin-top: 20px; color: #999; font-size: 10px;">
-                Qzone 2005 经典版
-            </div>
+            <div style="margin-top:20px; color:#999; font-size:10px;">Qzone 2005 经典版</div>
         </div>
 
     </div>
 
-    <!-- 底部音乐播放器 -->
-    <div class="music-bar">
-        <div>♫ 正在播放：童话 - 光良</div>
-        <div class="music-controls">
+    <!-- 底部播放器 -->
+    <div class="footer-player">
+        <div>🎵 正在播放：童话 - 光良</div>
+        <div class="player-controls">
             <button>|| 暂停</button>
         </div>
     </div>
-
 </div>
 
 </body>
