@@ -65,6 +65,7 @@ body {
   gap: 0.4rem;
   padding: 2rem 0;
   border-bottom: 1px solid #e5e5e5;
+  position: relative;
 }
 
 .post:first-child {
@@ -77,12 +78,15 @@ body {
 }
 
 .post-date {
+  position: absolute;
+  right: 0;
+  bottom: -0.7rem;
   font-size: 0.8rem;
   color: #999;
   font-weight: 500;
   letter-spacing: 0.2px;
-  align-self: flex-end;
-  margin-top: 0.8rem;
+  background-color: #fff;
+  padding-left: 0.5rem;
 }
 
 .post-title {
