@@ -1,16 +1,401 @@
+这是为您生成的一个可直接运行的HTML博客网页源码。它采用了现代杂志风格的版式设计，适合作为个人技术或生活博客的起点。
+
+html
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>极简主页</title>
-<style>
-  body { font: 16px/1.6 sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; color: #333; }
-  h1 { font-size: 2em; margin-bottom: 0; }
-  .role { color: #ff9900; font-weight: bold; margin-bottom: 20px; } /* 经典橙强调 */
-  blockquote { border-left: 4px solid #ff9900; padding-left: 15px; color: #666; margin: 20px 0; }
-  a { color: #ff9900; text-decoration: none; }
-</style></head>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>山间小筑 · 个人博客</title>
+  <!-- 引入 Font Awesome 6 图标库，用于社交图标和装饰 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9f6f1;
+      font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, sans-serif;
+      color: #2e2e2c;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 1.5rem 1rem;
+    }
+
+    /* 主容器：模拟纸张质感，柔和阴影 */
+    .blog {
+      max-width: 880px;
+      width: 100%;
+      background: #fffef9;
+      border-radius: 2.5rem 2.5rem 2rem 2rem;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05), 0 8px 18px rgba(120, 80, 50, 0.08);
+      padding: 2.2rem 2.5rem;
+      margin: 0 auto;
+      transition: all 0.2s ease;
+    }
+
+    /* 头部区域：头像 + 标题 + 导航 */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-bottom: 2px dashed #e7d7c4;
+      padding-bottom: 2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #d9c5ad;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      box-shadow: 0 10px 18px rgba(160, 120, 80, 0.2);
+      border: 3px solid #fff;
+      overflow: hidden;
+    }
+
+    .avatar i {
+      font-size: 4.2rem;
+      color: #5e4632;
+      filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
+    }
+
+    .blog-title {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: #4a3b2f;
+      margin-bottom: 0.3rem;
+      font-family: 'Times New Roman', '宋体', 'Noto Serif', serif;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #8b7a66;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      background: #f3ede7;
+      padding: 0.3rem 1.8rem;
+      border-radius: 30px;
+      display: inline-block;
+    }
+
+    /* 导航菜单 */
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #5f4c3b;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.4rem 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .nav-links a i {
+      font-size: 0.9rem;
+      color: #b2926e;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #c8a27a;
+      color: #3a2e24;
+    }
+
+    /* 特色卡片 / 关于我简介 */
+    .intro-card {
+      background: #f7f2ea;
+      border-radius: 1.8rem;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      border: 1px solid #ede3d6;
+    }
+
+    .intro-text {
+      flex: 2;
+      min-width: 220px;
+    }
+
+    .intro-text h2 {
+      font-size: 1.6rem;
+      font-weight: 450;
+      color: #4f3b28;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .intro-text p {
+      color: #5b4b3a;
+      font-size: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1;
+    }
+
+    .social-icons a {
+      color: #6b5a48;
+      background: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      transition: all 0.25s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background: #d4b594;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* 博客文章列表 */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #4e3c2c;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-left: 5px solid #c8aa8b;
+      padding-left: 1rem;
+    }
+
+    .posts-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .post-item {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.8rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f0e4d5;
+      transition: 0.2s;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .post-item:hover {
+      border-color: #cfb595;
+      box-shadow: 0 12px 20px rgba(160, 120, 70, 0.08);
+    }
+
+    .post-date {
+      background: #f2e8db;
+      color: #5e4530;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .post-content {
+      flex: 1;
+    }
+
+    .post-content h3 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #3d3225;
+      margin-bottom: 0.3rem;
+    }
+
+    .post-content p {
+      color: #6b5e4f;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .read-more {
+      color: #b48b5a;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      border-bottom: 1px dashed #c9aa82;
+    }
+
+    .read-more i {
+      font-size: 0.8rem;
+      transition: transform 0.2s;
+    }
+
+    .read-more:hover i {
+      transform: translateX(4px);
+    }
+
+    .tag {
+      background: #ede0cf;
+      color: #4f3b27;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      margin-left: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* 页脚 */
+    .footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #aa9b8b;
+      font-size: 0.9rem;
+      border-top: 1px solid #e7d9ca;
+      padding-top: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .footer i {
+      color: #c8aa8b;
+      margin: 0 0.2rem;
+    }
+
+    @media (max-width: 600px) {
+      .blog {
+        padding: 1.5rem 1.2rem;
+        border-radius: 2rem;
+      }
+      .post-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .social-icons {
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
 <body>
-  <h1>轻舞飞扬</h1>
-  <p class="role">前端开发 / 极简主义者</p>
-  <blockquote>“保持简单，保持专注。”</blockquote>
-  <p>你好，欢迎来到我的个人主页。这里只记录最核心的技术与生活点滴。</p>
-  <p>联系我：<a href="mailto:hi@example.com">hi@example.com</a></p>
-</body></html>
+  <div class="blog">
+    <!-- 头部：个人标识 -->
+    <header class="header">
+      <div class="avatar">
+        <i class="fas fa-feather-alt"></i>
+      </div>
+      <h1 class="blog-title">山间小筑</h1>
+      <div class="subtitle">
+        <i class="fas fa-map-pin"></i> 林静 · 个人博客
+      </div>
+      <nav class="nav-links">
+        <a href="#"><i class="fas fa-home"></i> 首页</a>
+        <a href="#"><i class="fas fa-compass"></i> 归档</a>
+        <a href="#"><i class="fas fa-user"></i> 关于</a>
+        <a href="#"><i class="fas fa-envelope"></i> 联系</a>
+      </nav>
+    </header>
+
+    <!-- 简短介绍卡片 -->
+    <div class="intro-card">
+      <div class="intro-text">
+        <h2><i class="fas fa-seedling"></i> 你好，我是林静</h2>
+        <p>一个喜欢在代码与文字间漫步的开发者。这里记录技术思考、读书笔记和日常光影。愿每一篇文字都能像山间微风，轻抚你的思绪。</p>
+      </div>
+      <div class="social-icons">
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="邮箱"><i class="fas fa-paper-plane"></i></a>
+      </div>
+    </div>
+
+    <!-- 最新文章区域 -->
+    <div>
+      <h2 class="section-title"><i class="fas fa-pen-fancy"></i> 近期文章</h2>
+      <div class="posts-grid">
+        <!-- 文章1 -->
+        <article class="post-item">
+          <div class="post-date">
+            <i class="far fa-calendar-alt"></i> 2026.08.01
+          </div>
+          <div class="post-content">
+            <h3>夏日重构：用纯CSS打造杂志感布局 <span class="tag">CSS</span></h3>
+            <p>告别框架依赖，回归设计本质。记录一次从草图到代码的极简风格实践。</p>
+            <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <!-- 文章2 -->
+        <article class="post-item">
+          <div class="post-date">
+            <i class="far fa-calendar-alt"></i> 2026.07.28
+          </div>
+          <div class="post-content">
+            <h3>《静谧与光明》读书札记 <span class="tag">阅读</span></h3>
+            <p>在建筑与哲学的交汇处，寻找空间中的诗意。一些关于路易斯·康的零散思考。</p>
+            <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <!-- 文章3 -->
+        <article class="post-item">
+          <div class="post-date">
+            <i class="far fa-calendar-alt"></i> 2026.07.22
+          </div>
+          <div class="post-content">
+            <h3>徒步茶山：云雾里的慢时光 <span class="tag">生活</span></h3>
+            <p>周末逃离城市，用脚步丈量青翠。分享一些山间拍摄的瞬间与感悟。</p>
+            <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <p>© 2026 山间小筑 · 林静的个人博客</p>
+      <p><i class="far fa-heart"></i> 由静心设计与书写 <i class="far fa-heart"></i></p>
+      <p style="font-size:0.8rem; margin-top:0.2rem;">保持好奇，保持温暖。</p>
+    </footer>
+  </div>
+</body>
