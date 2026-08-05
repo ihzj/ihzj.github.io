@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
+<head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  首页 - 简·博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>简·博客</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
+<body>
   <div class="blog">
     <header class="header">
-      <div class="site-title">简·博客</div>
+      <div class="site-title"><a href="index.html">简·博客</a></div>
       <nav class="nav">
-        <a href="index.html">首页</a>
+        <a href="index.html" class="active">首页</a>
         <a href="archive.html">历史文章</a>
         <a href="about.html">关于</a>
         <a href="contact.html">联系</a>
       </nav>
     </header>
 
-    <main class="posts">
-      <article class="post">
-        <div class="post-date">2026年8月3日</div>
-        <h2 class="post-title">
-          <a href="#">回归简单的网页设计哲学</a>
-        </h2>
-        <p class="post-excerpt">少即是多。为什么我们不再需要复杂的阴影和动画，以及如何用最少的元素构建舒适的阅读体验。</p>
-      </article>
+    <main class="main-content">
+      <div class="posts">
+        <article class="post">
+          <div class="post-meta">2026年8月3日</div>
+          <h2 class="post-title">
+            <a href="#">回归简单的网页设计哲学</a>
+          </h2>
+          <p class="post-excerpt">少即是多。为什么我们不再需要复杂的阴影和动画，以及如何用最少的元素构建舒适的阅读体验。好的设计不应该打扰阅读，而应该让文字本身成为主角。</p>
+        </article>
+      </div>
     </main>
 
     <footer class="footer">
-      © 2026 简·博客</span>
+      <span class="copyright">© 2026 简·博客</span>
       <div class="footer-links">
-        <a href="#">GitHub</a>
-        <a href="#">邮件</a>
-        <a href="#">RSS</a>
+        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+        <a href="#"><i class="fas fa-rss"></i> RSS</a>
       </div>
     </footer>
   </div>
